@@ -8,6 +8,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $descricao = $_POST['descricao'];
     $valor = $_POST['valor'];
     $quantidade = $_POST['quantidade'];
+    $imagem = $_POST['imagem'];
 
 
     $sql = "SELECT COUNT(pro_id) FROM produtos WHERE pro_nome = '$nome' AND pro_ativo = 's'";
@@ -20,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>window.alert('PRODUTO JÁ CADASTRADO!');</script>";
     }
     else{
-        $sql = "INSERT INTO produtos (pro_nome, pro_quantidade, pro_valor, pro_descricao, pro_ativo) VALUES('$nome','$quantidade','$valor','$descricao','n')";
+        $sql = "INSERT INTO produtos (pro_nome, pro_quantidade, pro_valor, pro_descricao, pro_imagem, pro_ativo) VALUES('$nome','$quantidade','$valor','$descricao','$imagem','n')";
         mysqli_query($link, $sql);
         echo "<script>window.alert('PRODUTO CADASTRADO!');</script>";
         echo "<script>window.location.href='cadastraproduto.php';</script>";
@@ -48,7 +49,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p></p>
                 <input type="decimal" name="valor" id="valor" placeholder="Valor">
                 <p></p>
-                <input type="text" name="descricao" id="descricao" placeholder="Descrição">
+                <input id = "desc" type="text" name="descricao" id="descricao" placeholder="Descrição">
+                <p></p>
+                <input type="file" name="imagem" id="imagem" placeholder="Imagem">
                 <p></p>
                 <input type="submit" name="cadastrar" id="cadastrar" placeholder="Cadastrar">
             </form>
