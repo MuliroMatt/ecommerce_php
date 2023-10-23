@@ -19,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>window.alert('USUÁRIO JÁ CADASTRADO!');</script>";
     }
     else{
-        $sql = "INSERT INTO usuarios (usu_nome, usu_senha, usu_ativo) VALUES('$nome','$senha','n')";
+        $sql = "INSERT INTO usuarios (usu_nome, usu_senha, usu_ativo) VALUES('$nome','$senha','s')";
         mysqli_query($link, $sql);
         echo "<script>window.alert('USUÁRIO CADASTRADO!');</script>";
         echo "<script>window.location.href='cadastrousuario.php';</script>";
@@ -43,10 +43,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <form action="cadastrousuario.php" method="post">
                 <input type="text" name="nome" id="nome" placeholder="Nome de Usuario">
                 <p></p>
-                <input type="password" name="senha" id="senha" placeholder="Senha">
+                <input type="password" name="senha" id="senha" minlength="6" maxlength="18" placeholder="Senha">
+                <span id="MostraSenha" onclick="MostraSenha()">👁</span>
                 <p></p>
                 <input type="submit" name="cadastrar" id="cadastrar" placeholder="Cadastrar">
             </form>
         </div>
     </body>
 </html>
+
+<!-- SCRIPT PARA MOSTRAR A SENHA -->
+
+<script>
+    function MostraSenha() {
+        var passwordInput = document.getElementById("senha");
+        var passwordIcon = document.getElementById("MostraSenha");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordIcon.textContent = "❌";
+        } else {
+            passwordInput.type = "password";
+            passwordIcon.textContent = "👁";
+        }
+    }
+</script>
