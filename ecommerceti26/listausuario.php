@@ -17,10 +17,14 @@
         if ($ativo == 's') {
             $sql = "SELECT * FROM usuarios WHERE usu_ativo = 's'";
             $retorno = mysqli_query($link, $sql);
-        } else {
+        } elseif ($ativo == 'n') {
             $sql = "SELECT * FROM usuarios WHERE usu_ativo = 'n'";
             $retorno = mysqli_query($link, $sql);
+        } else {
+            $sql = "SELECT * FROM usuarios";
+            $retorno = mysqli_query($link, $sql);
         }
+
     }
 ?>
 
@@ -41,6 +45,9 @@
                 <br>
                 <input type="radio" name="ativo" class="radio" value="n"
                 required onclick="submit()" <?= $ativo == 'n' ? "checked" : "" ?>>INATIVOS
+                <br>
+                <input type="radio" name="ativo" class="radio" value="todos"
+                required onclick="submit()" <?= $ativo == 'todos' ? "checked" : "" ?>>TODOS 
             </form>
             <div class="container">
                 <table border="1">

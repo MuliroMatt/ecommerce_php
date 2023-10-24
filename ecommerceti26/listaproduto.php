@@ -17,8 +17,13 @@
         if ($ativo == 's') {
             $sql = "SELECT * FROM produtos WHERE pro_ativo = 's'";
             $retorno = mysqli_query($link, $sql);
-        } else {
+        }
+        elseif ($ativo == 'n') { 
             $sql = "SELECT * FROM produtos WHERE pro_ativo = 'n'";
+            $retorno = mysqli_query($link, $sql);
+        } 
+        elseif ($ativo == 'todos') { 
+            $sql = "SELECT * FROM produtos";
             $retorno = mysqli_query($link, $sql);
         }
     }
@@ -41,6 +46,9 @@
                 <br>
                 <input type="radio" name="ativo" class="radio" value="n"
                 required onclick="submit()" <?= $ativo == 'n' ? "checked" : "" ?>>INATIVOS
+                <br>
+                <input type="radio" name="ativo" class="radio" value="todos"
+                required onclick="submit()" <?= $ativo == 'todos' ? "checked" : "" ?>>TODOS 
             </form>
             <div class="container">
                 <table border="1">
@@ -70,7 +78,7 @@
                             <!-- AO CLICAR NO BOTÃO ELE JÁ TRARÁ O ID DO USUÁRIO PARA A PÁGINA DO ALTERUSUARIO -->
                             <td><a href="alteraproduto.php?id=<?=$tbl[0] ?>"><input type="button" value="ALTERAR DADOS"></a></td>
 
-                            <td><?= $check = ($tbl[3] == "s") ? "SIM" : "NÃO" ?></td>
+                            <td><?= $check = ($tbl[6] == "s") ? "SIM" : "NÃO" ?></td>
 
                         </tr>
                     <?php

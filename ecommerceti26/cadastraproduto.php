@@ -5,10 +5,16 @@ include("conectadb.php");
 //*COLETA DE VARIÁVEIS VIA FORMULÁRIO DE HTML
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
+    $nome = trim($nome);
     $descricao = $_POST['descricao'];
-    $valor = $_POST['valor'];
+    $descricao = trim($descricao);
+    $valor = str_replace(",",".", $_POST['valor']);
     $quantidade = $_POST['quantidade'];
     $imagem = $_POST['imagem'];
+
+
+    #INSERÇÃO E CRIPTOGRAFIA DE IMAGEM
+    }
 
 
     $sql = "SELECT COUNT(pro_id) FROM produtos WHERE pro_nome = '$nome' AND pro_ativo = 's'";
@@ -21,12 +27,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>window.alert('PRODUTO JÁ CADASTRADO!');</script>";
     }
     else{
-        $sql = "INSERT INTO produtos (pro_nome, pro_quantidade, pro_valor, pro_descricao, pro_imagem, pro_ativo) VALUES('$nome','$quantidade','$valor','$descricao','$imagem','n')";
+        $sql = "INSERT INTO produtos (pro_nome, pro_quantidade, pro_valor, pro_descricao, pro_imagem, pro_ativo) 
+        VALUES('$nome','$quantidade','$valor','$descricao','$imagem','s')";
         mysqli_query($link, $sql);
         echo "<script>window.alert('PRODUTO CADASTRADO!');</script>";
         echo "<script>window.location.href='cadastraproduto.php';</script>";
     }
-}
 ?>
 
 
@@ -42,7 +48,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     </head>
     <body>
         <div>
-            <form action="cadastraproduto.php" method="post">
+            <form action="cadastraproduto.php" method="post" >
                 <input type="text" name="nome" id="nome" placeholder="Nome do Produto">
                 <p></p>
                 <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade">
@@ -51,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p></p>
                 <input id = "desc" type="text" name="descricao" id="descricao" placeholder="Descrição">
                 <p></p>
-                <input type="file" name="imagem" id="imagem" placeholder="Imagem">
+                <input type="file" name="imagem" id="imagem">
                 <p></p>
                 <input type="submit" name="cadastrar" id="cadastrar" placeholder="Cadastrar">
             </form>
