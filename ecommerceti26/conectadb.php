@@ -9,7 +9,6 @@
     $senha = "123";
 //* link de conexao com o banco
     $link = mysqli_connect($servidor, $usuario, $senha, $banco);
-    echo("deu bom");
 
     
 ?>

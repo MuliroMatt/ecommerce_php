@@ -1,6 +1,6 @@
 <?php
 //*INICIA A CONEXÃO COM O BANCO DE DADOS 
-include("conectadb.php");
+include("cabecalho.php");
 
 //*COLETA DE VARIÁVEIS VIA FORMULÁRIO DE HTML
 if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -11,10 +11,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $valor = str_replace(",",".", $_POST['valor']);
     $quantidade = $_POST['quantidade'];
     $imagem = $_POST['imagem'];
-
-
     #INSERÇÃO E CRIPTOGRAFIA DE IMAGEM
-    }
+    
 
 
     $sql = "SELECT COUNT(pro_id) FROM produtos WHERE pro_nome = '$nome' AND pro_ativo = 's'";
@@ -33,6 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>window.alert('PRODUTO CADASTRADO!');</script>";
         echo "<script>window.location.href='cadastraproduto.php';</script>";
     }
+}
 ?>
 
 
@@ -55,7 +54,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                 <p></p>
                 <input type="decimal" name="valor" id="valor" placeholder="Valor">
                 <p></p>
-                <input id = "desc" type="text" name="descricao" id="descricao" placeholder="Descrição">
+                <input id ="desc" type="text" name="descricao" id="descricao" placeholder="Descrição">
                 <p></p>
                 <input type="file" name="imagem" id="imagem">
                 <p></p>
