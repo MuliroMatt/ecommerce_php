@@ -74,7 +74,7 @@
                             <td><?=$tbl[2] ?></td>
                             <td><?=$tbl[3] ?></td>
                             <td><?=$tbl[4] ?></td>
-                            <td><?=$tbl[5] ?></td>
+                            <td><img width="90px" height="90px" src="data:image/png;base64,<?= $tbl[5] ?>"></td>
                             <!-- AO CLICAR NO BOTÃO ELE JÁ TRARÁ O ID DO USUÁRIO PARA A PÁGINA DO ALTERUSUARIO -->
                             <td><a href="alteraproduto.php?id=<?=$tbl[0] ?>"><input type="button" value="ALTERAR DADOS"></a></td>
 

@@ -4,20 +4,43 @@ include("cabecalho.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $nome = $_POST['nome'];
+    $nome = trim($nome);
+    $nome = mb_strtoupper($nome, 'UTF-8');
     $descricao = $_POST['descricao'];
+    $descricao = trim($descricao);
+    $descricao = strtolower($descricao);
     $quantidade = $_POST['quantidade'];
     $valor = $_POST['valor'];
-    $imagem = $_POST['imagem'];
     $ativo = $_POST['ativo'];
 
-    $sql = "UPDATE produtos SET pro_nome = '$nome', pro_descricao = '$descricao', pro_quantidade = '$quantidade',
-    pro_valor = '$valor', pro_imagem = '$imagem', pro_ativo = '$ativo' WHERE pro_id = $id";
+    
 
-    mysqli_query($link, $sql);
+if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+    $tipo = exif_imagetype($_FILES['imagem']['tmp_name']);
 
-    echo "<script>window.alert('PRODUTO ALTERADO COM SUCESSO!');</script>";
-    echo "<script>window.location.href='listaproduto.php';</script>";
-    exit();
+    if ($tipo !== false) {
+        // The file is an image
+        $imagem_temp = $_FILES['imagem']['tmp_name'];
+        $imagem = file_get_contents($imagem_temp);
+        $imagem_base64 = base64_encode($imagem); // Move this line inside the 'if' block
+    } else {
+        // The file is not an image
+        $imagem = file_get_contents(".\\Img\\alert.png");
+        $imagem_base64 = base64_encode($imagem); // Move this line inside the 'else' block
+    }
+} else {
+    // The file was not uploaded
+    $imagem = file_get_contents(".\\Img\\alert.png");
+    $imagem_base64 = base64_encode($imagem); // Move this line inside the 'else' block
+}
+
+$sql = "UPDATE produtos SET pro_nome = '$nome', pro_descricao = '$descricao', pro_quantidade = '$quantidade',
+pro_valor = '$valor', pro_imagem = '$imagem_base64', pro_ativo = '$ativo' WHERE pro_id = $id";
+
+mysqli_query($link, $sql);
+
+echo "<script>window.alert('Produto alterado com sucesso!');</script>";
+echo "<script>window.location.href='listaproduto.php';</script>";
 }
 
 $id = $_GET['id'];

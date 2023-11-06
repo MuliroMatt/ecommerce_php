@@ -1,0 +1,118 @@
+html{
+    margin: 0;
+    font-family: "Roboto";
+}
+body{
+    background-color: #222;
+    margin: 0;
+}
+#creditos-container{
+    margin: 50px;
+    margin-top: 50px;
+    max-width: 100%;
+    margin-bottom: 150px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+}
+
+.profile{
+    height: 500px;
+    width: 300px;
+    background: #ccc;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 15px;
+}
+img{
+    width: 220px;
+    height: 220px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.profile hr{
+    margin: 0;
+    width: 300px;
+    border-color: #34974d;
+}
+.profile h3{
+    margin: 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+}
+.product-stock{
+    width: 150px;
+    height: 40px;
+    cursor: default;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #973434;
+    background-color: #a83a3a;
+    color: #fff;
+}
+.button {
+    position: relative;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 1px solid #34974d;
+    background-color: #3aa856;
+  }
+  
+  .button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button .button__text {
+    transform: translateX(30px);
+    color: #fff;
+    font-weight: 600;
+  }
+  
+  .button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 39px;
+    background-color: #34974d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button .svg {
+    width: 30px;
+    stroke: #fff;
+  }
+  
+  .button:hover {
+    background: #34974d;
+  }
+  
+  .button:hover .button__text {
+    color: transparent;
+  }
+  
+  .button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button:active .button__icon {
+    background-color: #2e8644;
+  }
+  
+  .button:active {
+    border: 1px solid #2e8644;
+  }
+
+
