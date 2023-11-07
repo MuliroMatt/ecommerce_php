@@ -57,62 +57,36 @@ img{
     background-color: #a83a3a;
     color: #fff;
 }
-.button {
-    position: relative;
-    width: 150px;
-    height: 40px;
+.product-button {
+    align-items: center;
+    background-color: transparent;
+    color: #34974d;
     cursor: pointer;
     display: flex;
-    align-items: center;
-    border: 1px solid #34974d;
-    background-color: #3aa856;
-  }
-  
-  .button, .button__icon, .button__text {
-    transition: all 0.3s;
-  }
-  
-  .button .button__text {
-    transform: translateX(30px);
-    color: #fff;
-    font-weight: 600;
-  }
-  
-  .button .button__icon {
-    position: absolute;
-    transform: translateX(109px);
-    height: 100%;
-    width: 39px;
+    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    text-decoration: none;
+    text-transform: uppercase;
+    outline: 0;
+    border: 0;
+    padding: 1rem;
+}
+
+.product-button:before {
     background-color: #34974d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .button .svg {
-    width: 30px;
-    stroke: #fff;
-  }
-  
-  .button:hover {
-    background: #34974d;
-  }
-  
-  .button:hover .button__text {
-    color: transparent;
-  }
-  
-  .button:hover .button__icon {
-    width: 148px;
-    transform: translateX(0);
-  }
-  
-  .button:active .button__icon {
-    background-color: #2e8644;
-  }
-  
-  .button:active {
-    border: 1px solid #2e8644;
-  }
+    content: "";
+    display: inline-block;
+    height: 1px;
+    margin-right: 10px;
+    transition: all .42s cubic-bezier(.25,.8,.25,1);
+    width: 0;
+}
+
+.product-button:hover:before {
+    background-color: #34974d;
+    width: 3rem;
+}
 
 

@@ -11,29 +11,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $descricao = strtolower($descricao);
     $quantidade = $_POST['quantidade'];
     $valor = $_POST['valor'];
-    $ativo = $_POST['ativo'];
+    $ativo = $_POST['ativo'];    
+    $imagem = $_POST['imagem'];
 
     
 
-if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-    $tipo = exif_imagetype($_FILES['imagem']['tmp_name']);
-
-    if ($tipo !== false) {
-        // The file is an image
-        $imagem_temp = $_FILES['imagem']['tmp_name'];
-        $imagem = file_get_contents($imagem_temp);
-        $imagem_base64 = base64_encode($imagem); // Move this line inside the 'if' block
-    } else {
-        // The file is not an image
-        $imagem = file_get_contents(".\\Img\\alert.png");
-        $imagem_base64 = base64_encode($imagem); // Move this line inside the 'else' block
-    }
-} else {
-    // The file was not uploaded
-    $imagem = file_get_contents(".\\Img\\alert.png");
-    $imagem_base64 = base64_encode($imagem); // Move this line inside the 'else' block
-}
-
+    if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK){
+        $tipo = exif_imagetype($_FILES['imagem']['tmp_name']);
+    
+        if ($tipo !== false){
+            // O arquivo é uma imagem
+            $imagem_temp = $_FILES['imagem']['tmp_name'];
+            $imagem = file_get_contents($imagem_temp);
+            $imagem_base64 = base64_encode($imagem);
+        } else{
+            // O arquivo não é uma imagem
+            $imagem = file_get_contents (".\\img\\alert.png");
+            $imagem_base64 = base64_encode($imagem);
+        }
+    } else{
+        // O arquivo não foi enviado
+        $imagem = file_get_contents (".\\img\\alert.png");
+        $imagem_base64 = base64_encode($imagem);
+    } 
+    
 $sql = "UPDATE produtos SET pro_nome = '$nome', pro_descricao = '$descricao', pro_quantidade = '$quantidade',
 pro_valor = '$valor', pro_imagem = '$imagem_base64', pro_ativo = '$ativo' WHERE pro_id = $id";
 

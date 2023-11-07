@@ -42,8 +42,7 @@
                 if ($tbl[3] > 0) {
                 ?>
                     <h3 class="product-price">R$ <?=$tbl[4] ?></h3>
-                    
-                    <button onclick="location.href='verproduto.php?id=<?= $tbl[0] ?>'" class="product-button">Comprar</button>
+                    <button class="product-button" onclick="location.href='verproduto.php?id=<?= $tbl[0] ?>'" >Comprar</button>
                 <?php
                 } else { //FORA DE ESTOQUE
                 ?>
