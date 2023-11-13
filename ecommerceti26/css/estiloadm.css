@@ -1,5 +1,5 @@
 html{
-  background-color: hwb(125 9% 23%); /* Define a cor de fundo do menu */
+  background-color: hwb(251 9% 23%); /* Define a cor de fundo do menu */
 }
 
 .menu {
@@ -136,4 +136,11 @@ p{
     height: 50px;
     border-radius: 10px;
     font-size: smaller;
+  }
+
+  .buttons{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
   }
