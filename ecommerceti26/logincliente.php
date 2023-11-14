@@ -53,7 +53,7 @@
             <input type="submit" name="login" value="LOGIN">
         </form>
         <div class="buttons">
-            <button onclick="window.location.href='./cadastrousuario.php'">Cadastrar</button>
+            <button onclick="window.location.href='./cadastracliente.php'">Cadastrar</button>
             <button onclick="window.location.href='./recuperasenha.php'">Recuperar Senha</button>
         </div>
     </body>

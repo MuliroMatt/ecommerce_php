@@ -1,4 +1,6 @@
 <?php
+    include("cabecalho2.php");
+
     if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $id = $_POST['id'];
         $nomeproduto = $_POST['nomeproduto'];
@@ -28,8 +30,9 @@
                     $valor_venda = $quantidade * $preco;
 
                     //*SE O CARRINHO NÃO EXISTE GERA UM NOVO CARRINHO E INSERE NA TABELA ITENS DO CARRINHO
-                    $sql = "INSERT INTO carrinho(car_id, car_valorvenda, fk_cli_id, car finalizado) VALUES ('$numerocarrinho', $valor_venda,$idusuario,'n')";
+                    $sql = "INSERT INTO carrinho(car_id, car_valorvenda, fk_cli_id, car_finalizado) VALUES ($numerocarrinho, $valor_venda,$idusuario,'n')";
                     mysqli_query($link,$sql);
+                    
 
                     //*INSERE O ITEM NO CARRINHO
                     $sql2 = "INSERT INTO 'item_carrinho'('fk_car_id','fk_pro_id','car_item_quantidade') VALUES ($numerocarrinho, $id,$quantidade)";
@@ -45,10 +48,62 @@
                     while ($tbl = mysqli_fetch_array($retorno)){
                         $numerocarrinhocliente = $tbl[0];
                         $_SESSION['carrinhoid'] = $numerocarrinhocliente;
+
+                        //*VERIFICA SE JÁ EXISTE ESSE ITEM AO CARRINHO
+                        //*SE JÁ EXISTE, ATUALIZA A QUANTIDADE
+                        $sql2 = "SELECT car_item_quantidade FROM item_carrinho WHERE fk_car_id = '$numerocarrinhocliente' AND fk_pro_id = $id";
+                        $retorno2 = mysqli_query($link, $sql2);
+                        $qtd_atual = mysqli_fetch_array($retorno2);
+                        if($retorno2) {
+                            if(mysqli_num_rows($retorno2) >= 1) {
+                                $sql = "UPDATE item_carrinho SET car_item_quantidade = ($quantidade+$qtd_atual[0]) 
+                                WHERE fk_car_id = $numerocarrinhocliente AND fk_pro_id = $id";
+                                mysqli_query($link,$sql);
+                                echo "<script>window.alert('PRODUTO ADICIONADO AO CARRINHO $numerocarrinhocliente');</script>";
+                                echo "<script>window.location.href='loja.php';</script>";
+                            }
+                            //*SE JÁ EXISTE, ADICIONA O NOVO ITEM
+                            else{ 
+                                $sql = "INSERT INTO item_carrinho(fk_car_id,fk_pro_id,car_item_quantidade)
+                                VALUES ($numerocarrinhocliente,$id,$quantidade)";
+                                mysqli_query($link, $sql);
+                                echo "<script>window.alert('PRODUTO ADICIONADO AO CARRINHO $numerocarrinhocliente');</script>";
+                                echo "<script>window.location.href='loja.php';</script>";
+                            }
+                        }
                     }
                 }
             }
         }
+        echo "<script>window.location.href='loja.php';</script>";
+        exit();
+    }
+    $id = $_GET['id'];
+    $sql = "SELECT * FROM produtos WHERE pro_id = $id";
+    $retorno = mysqli_query($link, $sql);
+    while($tbl = mysqli_fetch_array($retorno)) {
+        $id = $tbl[0];
+        $nomeproduto = $tbl[1];
+        $descricao = $tbl[2];
+        $preco = $tbl[4];
+        $imagem_atual = $tbl[5];
+    }
+
+    //*CORAÇÃOZINHO DO FAVORITOS
+    if (isset($idusuario)) {
+        $sql = "SELECT COUNT(fav_id) FROM favoritos WHERE fav_cli_id = $idusuario AND fav_pro_id = $id";
+        $retorno = mysqli_query($link,$sql);
+
+        while ($tbl = mysqli_fetch_array($retorno)) {
+            $cont = $tbl[0];
+            if($cont <= 0){
+                $coracao = "https://icones.pro/wp-content/uploads/2021/02/icone-de-coeur-noir.png";
+            } else{
+                $coracao = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/800px-Heart_coraz%C3%B3n.svg.png";
+            }
+        }
+    } else {
+        $coracao = "https://icones.pro/wp-content/uploads/2021/02/icone-de-coeur-noir.png";
     }
 ?>
 
@@ -57,6 +112,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/estiloadm.css">
     <title>Ver Produto</title>
 </head>
 <body>

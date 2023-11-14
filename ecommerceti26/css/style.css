@@ -16,7 +16,7 @@ body{
     justify-content:flex-start;
 }
 
-.profile{
+.product{
     height: 500px;
     width: 300px;
     background: #ccc;
@@ -32,12 +32,12 @@ img{
     margin-top: 50px;
     margin-bottom: 50px;
 }
-.profile hr{
+.product hr{
     margin: 0;
     width: 300px;
     border-color: #34974d;
 }
-.profile h3{
+.product h3{
     margin: 10px 10px;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -87,6 +87,48 @@ img{
 .product-button:hover:before {
     background-color: #34974d;
     width: 3rem;
+}
+
+.menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    background-color: #333;
+    overflow: hidden;
+}
+
+.menu li {
+    float: left;
+}
+
+.menu li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.menu li a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.profile {
+    float: right;
+}
+
+.menuloja {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
 
 

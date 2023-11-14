@@ -1,5 +1,5 @@
 html{
-  background-color: hwb(251 9% 23%); /* Define a cor de fundo do menu */
+  background-color: #333; /* Define a cor de fundo do menu */
 }
 
 .menu {
@@ -22,7 +22,7 @@ html{
 }
 
 .menu li a:hover {
-  background-color: #550469; /* Define a cor de fundo ao passar o mouse sobre os links */
+  background-color: #34974d; /* Define a cor de fundo ao passar o mouse sobre os links */
   color: #fff; /* Define a cor do texto ao passar o mouse sobre os links */
   border-radius: 10px;
 }

@@ -1,6 +1,6 @@
 <?php
     #ABRE UMA CONEXÃO COM O BANCO DE DADOS
-    include("conectadb.php");
+    include("cabecalho2.php");
 
     #PASSANDO UMA INSTRUÇÃO AO BANCO DE DADOS
     $sql = "SELECT * FROM produtos WHERE pro_ativo = 's'";
@@ -33,7 +33,7 @@
             while ($tbl = mysqli_fetch_array($retorno)) {
 
             ?>
-            <div class="profile">
+            <div class="product">
                 <img src="data:image/jpeg;base64,<?=$tbl[5] ?>" alt="Product Image">
                 <hr>
                 <h3 class="product-title"><?=$tbl[1] ?></h3>
