@@ -1,11 +1,16 @@
+/** GERAL */ 
 html{
-    margin: 0;
     font-family: "Roboto";
 }
 body{
-    background-color: #222;
     margin: 0;
+    background-color: #0f479c;
 }
+h1,h2,h3,h4,h5,p,span{
+    margin: 0;
+    color: #FFF;
+}
+/** LOJA */
 #creditos-container{
     margin: 50px;
     margin-top: 50px;
@@ -47,7 +52,7 @@ img{
     text-align: center;
 }
 .product-stock{
-    width: 150px;
+    width: 150px;    
     height: 40px;
     cursor: default;
     display: flex;
@@ -89,6 +94,8 @@ img{
     width: 3rem;
 }
 
+
+/** NAV BAR */
 .menu {
     list-style-type: none;
     margin: 0;
@@ -131,4 +138,53 @@ img{
     cursor: pointer;
 }
 
+/** LOGIN */
 
+.login-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.login-form-container h1, p{
+    text-align: center;
+}
+.login-form-container h1{
+    margin-bottom: 3px;
+}
+
+.login-form{
+    text-align: center;
+}
+.login-input{
+    color: #FFF;
+    width: 340px;
+    height: 33px;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    margin: 7px;
+    padding: 5px 7px 5px 7px;
+    font-size: inherit;
+    background: none;
+}
+.login-input:focus{
+    outline: none;
+}
+#login-name{
+    margin-top: 35px;
+}
+#login-btn{
+    margin-top: 25px;
+    width: 350px;
+    height: 37px;
+    color: #4CAF50;
+    border: 2px solid #4CAF50;
+}
+#login-btn:hover{
+    transition: 0.3s;
+    color: #FFF;
+    background-color: #4CAF50;
+}
