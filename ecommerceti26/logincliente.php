@@ -40,21 +40,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/estiloadm.css">
+        <link rel="stylesheet" href="./css/style.css">
         <title>LOGIN DE USUÁRIO</title>
     </head>
     <body>
-        <form action="logincliente.php" method="POST">
-            <h1>LOGIN DE USUÁRIO</h1>
-            <input type="text" name="nomecliente" id="nomecliente" placeholder="Nome">
-            <p></p>
-            <input type="password" id="senha" name="senha" placeholder="Senha">
-            <p></p>
-            <input type="submit" name="login" value="LOGIN">
-        </form>
-        <div class="buttons">
-            <button onclick="window.location.href='./cadastracliente.php'">Cadastrar</button>
-            <button onclick="window.location.href='./recuperasenha.php'">Recuperar Senha</button>
+        <div class="login-form-container">
+            <form class="login-form" action="logincliente.php" method="POST">
+                <h1>Login Cliente</h1>
+                <p>Por favor insira seu login e sua senha</p>
+                <input class="login-input" id="login-name" type="text" name="nomecliente" placeholder="Nome">
+                <br>
+                <input class="login-input" id="login-password" type="password"  name="senha" placeholder="Senha">
+                <br>
+                <input class="login-input" id="login-btn" type="submit" name="login" value="Login">
+                <br>
+                <button onclick="window.location.href='./cadastracliente.php'">Cadastrar</button>
+                <button onclick="window.location.href='./recuperasenha.php'">Recuperar Senha</button>
+            </form>
         </div>
     </body>
 </html>

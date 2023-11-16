@@ -40,17 +40,21 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/estiloadm.css">
+        <link rel="stylesheet" href="./css/style.css">
         <title>LOGIN DE USUÁRIO</title>
     </head>
     <body>
-        <form action="login.php" method="POST">
-            <h1>LOGIN DE USUÁRIO</h1>
-            <input type="text" name="nomeusuario" id="nome" placeholder="Nome">
-            <p></p>
-            <input type="password" id="senha" name="senha" placeholder="Senha">
-            <p></p>
-            <input type="submit" name="login" value="LOGIN">
-        </form>
+        <div class="login-form-container">
+            <form class="login-form" action="login.php" method="POST">
+                <h1>Login</h1>
+                <p>Por favor insira seu login e sua senha</p>
+                <input id="login-name" class="login-input" type="text" name="nomeusuario" placeholder="Nome">
+                <br>
+                <input id="login-password" class="login-input" type="password"  name="senha" placeholder="Senha">
+                <br>
+                <input id="login-btn" class="login-input" type="submit" name="login" value="Login">
+            </form>
+        </div>
+        
     </body>
 </html>
