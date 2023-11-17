@@ -4,7 +4,7 @@ include("conectadb.php");
 
 //*COLETA DE VARIÁVEIS VIA FORMULÁRIO DE HTML
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nome'];
+    $nome = $_POST['nomecliente'];
     $senha = $_POST['senha'];
     $email = $_POST['email'];
 
@@ -41,40 +41,52 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="./css/estiloadm.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>CADASTRO DE CLIENTE</title>
     </head>
-    <body>
-        <div>
+    <body class="login-body">
+        <div class="wrapper">
             <form action="cadastracliente.php" method="post">
-                <input type="text" name="email" id="email" placeholder="E-mail">
-                <p></p>
-                <input type="text" name="nome" id="nome" placeholder="Nome de Usuario">
-                <p></p>
-                <input type="password" name="senha" id="senha" minlength="6" maxlength="18" placeholder="Senha">
-                <span id="MostraSenha" onclick="MostraSenha()">👁</span>
-                <p></p>
-                <input type="submit" name="cadastrar" id="cadastrar" placeholder="Cadastrar">
+                <h1>Registre-se</h1>
+                <p>Crie a sua conta e aproveito ao máximo o que nós temos para oferecer</p>
+                <div class="input-box">
+                    <input id="signin-email" type="text" name="email" placeholder="E-mail">
+                    <i class='bx bxs-envelope'></i>
+                </div>
+                <div class="input-box" id="input-box-name">
+                    <input id="login-name" type="text" name="nomecliente" placeholder="Nome">
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box" id="input-box-password">
+                    <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha">
+                    <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
+                </div>
+                <button type="submit" class="btn">Registrar</button>
             </form>
+            <div class="register-link">
+                <p>Já tem uma conta? <a href="logincliente.php">Faça login</a></p>
+            </div>
         </div>
     </body>
 </html>
 
-<!-- SCRIPT PARA MOSTRAR A SENHA -->
-
 <script>
     function MostraSenha() {
-        var passwordInput = document.getElementById("senha");
+        var passwordInput = document.getElementById("login-password");
         var passwordIcon = document.getElementById("MostraSenha");
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            passwordIcon.textContent = "❌";
+            passwordIcon.innerHTML = "<i class='bx bx-lock-open-alt'></i>";
         } else {
             passwordInput.type = "password";
-            passwordIcon.textContent = "👁";
+            passwordIcon.innerHTML = "<i class='bx bxs-lock-alt'></i>";
         }
     }
 </script>

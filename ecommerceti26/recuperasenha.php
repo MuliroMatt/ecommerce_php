@@ -56,16 +56,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estiloadm.css">
-    <title>RecuperaSenha</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Recupera Senha</title>
 </head>
-<body>
-    <div>
-        <h2>Redefiner Senha</h2>
+<body class="login-body">
+    <div class="wrapper">
         <form action="recuperasenha.php" method="POST">
-            <label for="email">Email:</label>
-            <input type="text" id="email" name="email">
-            <input type="submit" value="Enviar">
+            <h1>Redefinir Senha</h1>
+            <div class="input-box">
+                <input type="text" id="email" name="email" placeholder="Email">
+            </div>
+            <button type="submit" class="btn">Enviar</button>
             </form>
     </div>
 </body>
