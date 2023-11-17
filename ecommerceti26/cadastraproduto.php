@@ -6,10 +6,8 @@ include("cabecalho.php");
 if($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST['nome'];
     $nome = trim($nome);
-    $nome = mb_strtoupper($nome, 'UTF-8');
     $descricao = $_POST['descricao'];
     $descricao = trim($descricao);
-    $descricao = strtoupper($descricao);
     $valor = str_replace(",",".", $_POST['valor']);
     $quantidade = $_POST['quantidade'];
     $imagem = $_POST['imagem'];

@@ -41,22 +41,45 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>LOGIN DE USUÁRIO</title>
     </head>
-    <body>
-        <div class="login-form-container">
-            <form class="login-form" action="logincliente.php" method="POST">
+    <body class="login-body">
+        <div class="wrapper">
+            <form action="logincliente.php" method="POST">
                 <h1>Login Cliente</h1>
                 <p>Por favor insira seu login e sua senha</p>
-                <input class="login-input" id="login-name" type="text" name="nomecliente" placeholder="Nome">
-                <br>
-                <input class="login-input" id="login-password" type="password"  name="senha" placeholder="Senha">
-                <br>
-                <input class="login-input" id="login-btn" type="submit" name="login" value="Login">
-                <br>
-                <button onclick="window.location.href='./cadastracliente.php'">Cadastrar</button>
-                <button onclick="window.location.href='./recuperasenha.php'">Recuperar Senha</button>
+                <div class="input-box" id="input-box-name">
+                    <input id="login-name" type="text" name="nomecliente" placeholder="Nome">
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box" id="input-box-password">
+                    <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha">
+                    <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
+                </div>
+                <div class="forgot">
+                    <a href="recuperasenha.php">Esqueceu sua senha?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
             </form>
+            <div class="register-link">
+                <p>Não tem uma conta? <a href="cadastracliente.php">Registre-se</a></p>
+            </div>
         </div>
     </body>
 </html>
+
+<script>
+    function MostraSenha() {
+        var passwordInput = document.getElementById("login-password");
+        var passwordIcon = document.getElementById("MostraSenha");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordIcon.innerHTML = "<i class='bx bxs-lock-open-alt'></i>";
+        } else {
+            passwordInput.type = "password";
+            passwordIcon.innerHTML = "<i class='bx bxs-lock-alt'></i>";
+        }
+    }
+</script>

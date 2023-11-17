@@ -41,20 +41,39 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>LOGIN DE USUÁRIO</title>
     </head>
-    <body>
-        <div class="login-form-container">
-            <form class="login-form" action="login.php" method="POST">
+    <body class="login-body">
+        <div class="wrapper">
+            <form action="login.php" method="post">
                 <h1>Login</h1>
                 <p>Por favor insira seu login e sua senha</p>
-                <input id="login-name" class="login-input" type="text" name="nomeusuario" placeholder="Nome">
-                <br>
-                <input id="login-password" class="login-input" type="password"  name="senha" placeholder="Senha">
-                <br>
-                <input id="login-btn" class="login-input" type="submit" name="login" value="Login">
+                <div class="input-box" id="input-box-name">
+                    <input id="login-name" type="text" name="nomeusuario" placeholder="Nome">
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box" id="input-box-password">
+                    <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha">
+                    <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
+                </div>
+                <button type="submit" class="btn">Login</button>
             </form>
         </div>
-        
     </body>
 </html>
+
+<script>
+    function MostraSenha() {
+        var passwordInput = document.getElementById("login-password");
+        var passwordIcon = document.getElementById("MostraSenha");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordIcon.innerHTML = "<i class='bx bxs-lock-open-alt'></i>";
+        } else {
+            passwordInput.type = "password";
+            passwordIcon.innerHTML = "<i class='bx bxs-lock-alt'></i>";
+        }
+    }
+</script>
