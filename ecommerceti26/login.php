@@ -50,11 +50,11 @@
                 <h1>Login</h1>
                 <p>Por favor insira seu login e sua senha</p>
                 <div class="input-box" id="input-box-name">
-                    <input id="login-name" type="text" name="nomeusuario" placeholder="Nome">
+                    <input id="login-name" type="text" name="nomeusuario" placeholder="Nome" required>
                     <i class='bx bxs-user'></i>
                 </div>
                 <div class="input-box" id="input-box-password">
-                    <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha">
+                    <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha" required>
                     <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
                 </div>
                 <button type="submit" class="btn">Login</button>

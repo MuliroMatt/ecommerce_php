@@ -9,22 +9,28 @@ if (isset($_SESSION['nomeusuario'])) {
 }
 ?>
 
-<div>
-    <ul class="menu">
-        <li><a href="loja.php">HOME</a></li>
-        <?php
-        if($nomeusuario != ""){
-        ?>
-        <li class="profile"><a href="logoutcliente.php">SAIR</a></li>
-        <li class="profile"><a href="perfil.php?id=<?= ($idusuario) ?>">OLÁ <?=strtoupper($nomeusuario)?></a></li>
-        <li class="profile"><a class="menuloja" href="carrinho.php?id=<?= ($idusuario) ?>">CARRINHO</a></li>
-
-        <?php
-        }else {
-            ?>
-            <li class="profile"><a class="profile" href="logincliente.php">LOGIN</a></li>
+<link rel="stylesheet" href="./css/style.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<nav>
+    <div class="nav-container">
+        <ul>
+            <li><a href="loja.php">Home</a></li>
+            
+        </ul>
+        <ul class="user-info">
             <?php
-        }
-        ?>
-    </ul>
-</div>
+            if($nomeusuario != ""){
+            ?>
+            <li><a href="logoutcliente.php">Sair</a></li>
+            <li><a href="perfil.php?id=<?= ($idusuario) ?>">Olá <?=$nomeusuario?></a></li>
+            <li><a href="carrinho.php?id=<?= ($idusuario) ?>"><i class='bx bxs-cart'></i></a></li>
+            <?php
+            }else {
+            ?>
+                <li><a href="logincliente.php">Login</a></li>
+            <?php
+            }
+            ?>
+        </ul>
+    </div>
+</nav>

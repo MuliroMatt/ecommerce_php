@@ -62,7 +62,6 @@ while ($tbl = mysqli_fetch_array($retorno)) {
             <?= $ativo == "s" ? "checked" : "" ?>>ATIVO<br>
             <input type="radio" name="ativo" value="n"
             <?= $ativo == "n" ? "checked" : "" ?>>INATIVO<br>
-
             <input type="submit" value="SALVAR">
         </form>
     </div>>

@@ -102,17 +102,279 @@
     text-decoration: underline;
 }
 
+/** ######################################## NAVBAR ######################################## */
+/** NAV BAR 1 */
+nav{
+    top: 0;
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    z-index: 1;
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+.nav-container{
+    position: relative;
+    width: 1400px;
+    display: flex;
+    justify-content: space-between;
+}
+.nav-container ul{
+    width: 75%;
+    display: flex;
+    align-items: center;
+}
+.nav-container .user-info{
+    width: 25%;
+    display: flex;
+    justify-content: flex-end;
+}
+.nav-container li{
+    list-style: none;
+    padding: 10px 15px;
+}
+.nav-container li a{
+    text-decoration: none;
+    color: #333333;
+}
+.nav-container li a:hover{
+    transition: 0.5s;
+    color: #0f479c;
+}
+.nav-container li p{
+    color: #4CAF50;
+    cursor: default;
+}
 
-/** CADASTRA CLIENTE*/
-.signin-body{
+
+/** NAV BAR 2 */
+.nav-container .user-info .cabecalho2 {
+    width: 40%;
+}
+.user-info i{
+    font-size: 30px;
+}
+
+
+/** ######################################## LISTAUSUARIO ######################################## */
+.listausuario-container{
+    background-color: #0f479c;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background-color: #0f479c;
+}
+.listausuario-container main.table{
+    margin-top: 50px;
+    width: 80vw;
+    height: 90vh;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: hidden;
+}
+.listausuario-container .table-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 10%;
+    background-color: #fff4;
+    padding: 1rem 1rem;
+}
+.listausuario-container .table-body{
+    width: 95%;
+    max-height: calc(89% - 1.6rem);
+    background-color: #FFFb;
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
+}
+.listausuario-container .table-body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.listausuario-container .table-body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+.listausuario-container .table-body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+.listausuario-container table{
+    width: 100%;
+}
+.listausuario-container table, th, td{
+    text-align: center;
+    border-collapse: collapse;
+    padding: 1rem;
+}
+.listausuario-container thead th{
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+}
+.listausuario-container tbody tr.even {
+    background-color: #0000000b;
+}
+.listausuario-container tbody tr:hover{
+    transition: 0.5s;
+    background-color: #fff6;
+}
+.listausuario-container .status {
+    padding: .4rem 0;
+    border-radius: 2rem;
+}
+.listausuario-container .status.ativo{
+    background-color: #86e49d;
+    color: #006b21;
+}
+.listausuario-container .status.inativo{
+    background-color: #d893a3;
+    color: #b30021;
 }
 
-/** LOJA */
+/** BOTÃO ALTERAR */
+.btn-alterar {
+    width: 6rem;
+    padding: 10px 15px;
+    background-color: #007ACC;
+    outline: 3px #007ACC solid;
+    outline-offset: -3px;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+    transition: 400ms;
+}
+.btn-alterar .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+}
+.btn-alterar:hover {
+    background-color: transparent;
+}
+.btn-alterar:hover .text {
+    color: #007ACC;
+}
+
+/** OPÇÕES DE VISUALIZAÇÃO - RADIO BUTTONS */
+.form-container{
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+.form-container form{
+    display: flex;
+}
+.radio{
+    display: none;
+}
+.radio-label{
+    padding: 8px 14px;
+    font-size: 14px;
+    color: #FFF;
+    background: #4CAF50;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+.radio-label:not(:last-of-type){
+    border-right: 1px solid #34974d;
+}
+.radio:checked + .radio-label{
+    background: #34974d
+}
+
+/** ######################################## LISTAPRODUTO ######################################## */
+#background {
+    background-color: #0f479c;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    margin-top: 50px;
+    width: 80vw;
+    height: 90vh;
+    background-color: #fff5;
+    backdrop-filter: blur(7px);
+    box-shadow: 0 .4rem .8rem #0005;
+    border-radius: .8rem;
+    overflow: hidden;
+}
+
+.container form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.radio {
+    display: none;
+}
+
+.container input[type="radio"] {
+    margin-bottom: 10px;
+}
+
+.container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.container th, .container td {
+    text-align: center;
+    padding: 10px;
+}
+
+.container th {
+    background-color: #d5d1defe;
+    position: sticky;
+    top: 0;
+}
+
+.container tr:nth-child(even) {
+    background-color: #0000000b;
+}
+
+.container tr:hover {
+    transition: 0.5s;
+    background-color: #fff6;
+}
+
+.container img {
+    width: 90px;
+    height: 90px;
+}
+
+.container input[type="button"] {
+    background-color: #007ACC;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 2rem;
+    cursor: pointer;
+    transition: 400ms;
+}
+
+.container input[type="button"]:hover {
+    background-color: transparent;
+    color: #007ACC;
+}
+
+
+
+/** ######################################## LOJA ######################################## */
 #creditos-container{
     margin: 50px;
     margin-top: 50px;
@@ -164,7 +426,7 @@ img{
     background-color: #a83a3a;
     color: #fff;
 }
-.product-button {
+.product-btn-alterar {
     align-items: center;
     background-color: transparent;
     color: #34974d;
@@ -181,7 +443,7 @@ img{
     padding: 1rem;
 }
 
-.product-button:before {
+.product-btn-alterar:before {
     background-color: #34974d;
     content: "";
     display: inline-block;
@@ -191,54 +453,8 @@ img{
     width: 0;
 }
 
-.product-button:hover:before {
+.product-btn-alterar:hover:before {
     background-color: #34974d;
     width: 3rem;
 }
-
-
-/** NAV BAR */
-
-.menu {
-    list-style-type: none;
-    margin: 0;
-    padding: 10px;
-    background-color: #333;
-    overflow: hidden;
-}
-
-.menu li {
-    float: left;
-}
-
-.menu li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-.menu li a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.profile {
-    float: right;
-}
-
-.menuloja {
-    background-color: #4CAF50; 
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 14px;
-    margin: 4px 2px;
-    cursor: pointer;
-} 
-
 
