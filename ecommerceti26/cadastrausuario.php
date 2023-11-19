@@ -54,12 +54,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="wrapper">
                 <form action="cadastrousuario.php" method="post">
                     <h1>Registrar usuário</h1>
-                    <input type="text" name="nome" id="nome" placeholder="Nome de Usuario">
-                    <p></p>
-                    <input type="password" name="senha" id="senha" minlength="6" maxlength="18" placeholder="Senha">
-                    <span id="MostraSenha" onclick="MostraSenha()">👁</span>
-                    <p></p>
-                    <input type="submit" name="cadastrar" id="cadastrar" placeholder="Cadastrar">
+                    <div class="input-box" id="input-box-name">
+                        <input id="login-name" type="text" name="nome" placeholder="Nome">
+                        <i class='bx bxs-user'></i>
+                    </div>
+                    <div class="input-box" id="input-box-password">
+                        <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha">
+                        <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
+                    </div>
+                    <button type="submit" class="btn">Registrar</button>
                 </form>
             </div>
         </div>
