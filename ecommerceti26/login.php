@@ -44,21 +44,23 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>LOGIN DE USUÁRIO</title>
     </head>
-    <body class="login-body">
-        <div class="wrapper">
-            <form action="login.php" method="post">
-                <h1>Login</h1>
-                <p>Por favor insira seu login e sua senha</p>
-                <div class="input-box" id="input-box-name">
-                    <input id="login-name" type="text" name="nomeusuario" placeholder="Nome" required>
-                    <i class='bx bxs-user'></i>
-                </div>
-                <div class="input-box" id="input-box-password">
-                    <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha" required>
-                    <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
-                </div>
-                <button type="submit" class="btn">Login</button>
-            </form>
+    <body>
+        <div class="login-container">
+            <div class="wrapper">
+                <form action="login.php" method="post">
+                    <h1>Login</h1>
+                    <p>Por favor insira seu login e sua senha</p>
+                    <div class="input-box" id="input-box-name">
+                        <input id="login-name" type="text" name="nomeusuario" placeholder="Nome" required>
+                        <i class='bx bxs-user'></i>
+                    </div>
+                    <div class="input-box" id="input-box-password">
+                        <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha" required>
+                        <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
         </div>
     </body>
 </html>

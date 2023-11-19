@@ -1,12 +1,11 @@
 <?php
 //*INICIA A CONEXÃO COM O BANCO DE DADOS 
-include("conectadb.php");
+include("cabecalho.php");
 
 //*COLETA DE VARIÁVEIS VIA FORMULÁRIO DE HTML
 if($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nomecliente'];
+    $nome = $_POST['nome'];
     $senha = $_POST['senha'];
-    $email = $_POST['email'];
 
     if (preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z\d])/', $senha)) {
         //*(?=.*[a-z]): Pelo menos 1 letra minúscula.
@@ -16,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         //*PASSANDO INSTRUÇÕES SQL PARA O BANCO
         //*VALIDANDO SE USUARIO EXISSTE
-        $sql = "SELECT COUNT(cli_id) FROM clientes WHERE cli_nome = '$nome' AND cli_senha = '$senha' AND cli_ativo = 's'";
+        $sql = "SELECT COUNT(usu_id) FROM usuarios WHERE usu_nome = '$nome' AND usu_senha = '$senha' AND usu_ativo = 's'";
         $retorno = mysqli_query($link, $sql);
         while($tbl = mysqli_fetch_array($retorno)){
             $cont = $tbl[0];
@@ -28,11 +27,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         else{
             $tempero = md5(rand() . date('H:i:s'));
             $senha = md5($senha . $tempero);
-            $sql = "INSERT INTO clientes (cli_nome, cli_senha, cli_email, cli_ativo, cli_tempero) 
-            VALUES('$nome','$senha','$email','s', '$tempero')";
+            $sql = "INSERT INTO usuarios (usu_nome, usu_senha, usu_ativo, usu_tempero) 
+            VALUES('$nome','$senha','s', '$tempero')";
             mysqli_query($link, $sql);
             echo "<script>window.alert('USUÁRIO CADASTRADO!');</script>";
-            echo "<script>window.location.href='logincliente.php';</script>";
+            echo "<script>window.location.href='cadastrousuario.php';</script>";
         }
     }
     else {
@@ -48,35 +47,26 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <title>CADASTRO DE CLIENTE</title>
+        <title>CADASTRO DE USUÁRIO</title>
     </head>
     <body>
-        <div class="cadastracliente-container">
+        <div class="cadastrausuario-container">
             <div class="wrapper">
-                <form action="cadastracliente.php" method="post">
-                    <h1>Registre-se</h1>
-                    <p>Crie a sua conta e aproveito ao máximo o que nós temos para oferecer</p>
-                    <div class="input-box">
-                        <input id="signin-email" type="text" name="email" placeholder="E-mail">
-                        <i class='bx bxs-envelope'></i>
-                    </div>
-                    <div class="input-box" id="input-box-name">
-                        <input id="login-name" type="text" name="nomecliente" placeholder="Nome">
-                        <i class='bx bxs-user'></i>
-                    </div>
-                    <div class="input-box" id="input-box-password">
-                        <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha">
-                        <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
-                    </div>
-                    <button type="submit" class="btn">Registrar</button>
+                <form action="cadastrousuario.php" method="post">
+                    <h1>Registrar usuário</h1>
+                    <input type="text" name="nome" id="nome" placeholder="Nome de Usuario">
+                    <p></p>
+                    <input type="password" name="senha" id="senha" minlength="6" maxlength="18" placeholder="Senha">
+                    <span id="MostraSenha" onclick="MostraSenha()">👁</span>
+                    <p></p>
+                    <input type="submit" name="cadastrar" id="cadastrar" placeholder="Cadastrar">
                 </form>
-                <div class="register-link">
-                    <p>Já tem uma conta? <a href="logincliente.php">Faça login</a></p>
-                </div>
             </div>
         </div>
     </body>
 </html>
+
+<!-- SCRIPT PARA MOSTRAR A SENHA -->
 
 <script>
     function MostraSenha() {
@@ -85,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            passwordIcon.innerHTML = "<i class='bx bx-lock-open-alt'></i>";
+            passwordIcon.innerHTML = "<i class='bx bxs-lock-open-alt'></i>";
         } else {
             passwordInput.type = "password";
             passwordIcon.innerHTML = "<i class='bx bxs-lock-alt'></i>";

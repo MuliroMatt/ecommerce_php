@@ -5,6 +5,7 @@
     #PASSANDO UMA INSTRUÇÃO AO BANCO DE DADOS
     $sql = "SELECT * FROM produtos WHERE pro_ativo = 's'";
     $retorno = mysqli_query($link, $sql);
+    $contador = 0;
 
     #FORÇA SEMPRE TRAZER 'S' NA VARIÁVEL PARA UTILIZARMOS NOS RADIO BUTNTON
     $ativo = "s";
@@ -30,62 +31,92 @@
 ?>
 
 
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/estiloadm.css">
-        <title>LISTA PRODUTOS</title>
-    </head>
-    <body>
-        <div id="background ">
-            <form action="listaproduto.php" method="post">
-                <input type="radio" name="ativo" class="radio" value="s"
-                required onclick="submit()" <?= $ativo == 's' ? "checked" : "" ?>>ATIVOS
-                <br>
-                <input type="radio" name="ativo" class="radio" value="n"
-                required onclick="submit()" <?= $ativo == 'n' ? "checked" : "" ?>>INATIVOS
-                <br>
-                <input type="radio" name="ativo" class="radio" value="todos"
-                required onclick="submit()" <?= $ativo == 'todos' ? "checked" : "" ?>>TODOS 
-            </form>
-            <div class="container">
-                <table border="1">
-                    <tr>
-                        <th>PRODUTO</th>
-                        <th>DESCRIÇÃO</th>
-                        <th>QUANTIDADE ESTOQUE</th>
-                        <th>PREÇO</th>
-                        <th>IMAGEM</th>
-                        <th>ALTERAR DADOS</th>
-                        <th>ATIVO</th>
-                    </tr>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>LISTA PRODUTOS</title>
+</head>
+<body>
+    <div class="listaproduto-container">
+        <main class="table"> 
+            <section class="table-header">
+                <h1>Lista de Produtos</h1>
+                <div class="form-container">
+                    <form action="listaproduto.php" method="post">
+                        <input type="radio" name="ativo" class="radio" value="s" id="radioativo"
+                        required onclick="submit()" <?= $ativo == 's' ? "checked" : "" ?>>
+                        <label class="radio-label" for="radioativo">Ativo</label>
+                        <input type="radio" name="ativo" class="radio" value="n" id="radioinativo"
+                        required onclick="submit()" <?= $ativo == 'n' ? "checked" : "" ?>>
+                        <label class="radio-label" for="radioinativo">Inativo</label>
+                        <input type="radio" name="ativo" class="radio" value="todos" id="radiotodos"
+                        required onclick="submit()" <?= $ativo == 'todos' ? "checked" : "" ?>>
+                        <label class="radio-label" for="radiotodos">Todos</label>
+                    </form>
+                </div>
+            </section>
+            <section class="table-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Imagem</th>
+                            <th>Descrição</th>
+                            <th>Quantidade em Estoque</th>
+                            <th>Preço</th>
+                            <th>Status</th>
+                            <th>Alterar Dados</th>
+                        </tr>
+                    </thead>
                     <!-- INICIO DE PHP + HTML -->
                     <?php
-
-                    #FAZENDO PREECHIMENTO DE TABELA USANDO WHILE (ENQUANTO TEM DADOS PARA PREENCHER)
+                    #FAZENDO PREENCHIMENTO DE TABELA USANDO WHILE (ENQUANTO TEM DADOS PARA PREENCHER)
                     while ($tbl = mysqli_fetch_array($retorno)) {
-
-                        #MAS AQUI EU FECHO PARA TRABLHAR COM HTML SIMULTANEAMENTE
+                        $contador++;
+                        $classe = ($contador % 2 == 0) ? 'even' : 'odd';
                     ?>
-                        <tr>
-                            <td><?=$tbl[1] ?></td> <!--TRAZ SOMENTE A COLUNA 1 [NOME] DO BANCO -->
-                            <td><?=$tbl[2] ?></td>
-                            <td><?=$tbl[3] ?></td>
-                            <td><?=$tbl[4] ?></td>
-                            <td><img width="90px" height="90px" src="data:image/png;base64,<?= $tbl[5] ?>"></td>
-                            <!-- AO CLICAR NO BOTÃO ELE JÁ TRARÁ O ID DO USUÁRIO PARA A PÁGINA DO ALTERUSUARIO -->
-                            <td><a href="alteraproduto.php?id=<?=$tbl[0] ?>"><input type="button" value="ALTERAR DADOS"></a></td>
-
-                            <td><?= $check = ($tbl[6] == "s") ? "SIM" : "NÃO" ?></td>
-
-                        </tr>
+                        <tbody>
+                            <tr class="<?= $classe ?>">
+                                <td id="pro"><?= $tbl[1] ?></td> <!--PRODUTO-->
+                                <td id="img"><img src="data:image/png;base64,<?= $tbl[5] ?>" onclick="change(this)"></td> <!--IMAGEM-->
+                                <td id="desc">
+                                    <?php
+                                    $descricao = substr($tbl[2], 0, 100);
+                                    echo $descricao;
+                                    if (strlen($tbl[2]) > 100) {
+                                        echo '...<a href="lermais.php">mais</a>';
+                                    }
+                                    ?>
+                                </td> <!--DESCRIÇÃO-->
+                                <td id="quant"><strong><?= $tbl[3] ?></strong></td> <!--QUANTIDADE-->
+                                <td id="preco"><strong>R$ <?= $tbl[4] ?></strong></td> <!--PREÇO-->
+                                <td id="status">
+                                    <p class="status <?= $check = ($tbl[6] == "s") ? "ativo" : "inativo" ?>">
+                                        <?= $check = ($tbl[6] == "s") ? "Ativo" : "Inativo" ?>
+                                    </p>
+                                </td>
+                                <td id="alt"><a href="alteraproduto.php?id=<?= $tbl[0] ?>"><button class="btn-alterar"><p class="text">Alterar</p></button></a></td>
+                            </tr>
+                        </tbody>
                     <?php
                     }
                     ?>
                 </table>
-            </div>
-        </div>
-    </body>
+            </section>
+        </main>
+    </div>
+</body>
 </html>
+
+<script>
+    function change(element) {
+        element.classList.toggle("zoom");
+    }
+</script>
+
+
+

@@ -7,32 +7,32 @@
 }
 
 
-/** LOGIN - LOGINCLIENTE - CADASTRACLIENTE*/
-.login-body{
+/** ######################################## LOGIN ######################################## */
+.login-container{
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     background-color: #0f479c;
 }
-.wrapper{
+.login-container .wrapper{
     width: 420px;
     color: #FFF;
 }
-.wrapper h1, p{
+.login-container .wrapper h1, p{
     text-align: center;
 }
-.wrapper h1{
+.login-container .wrapper h1{
     font-size: 36px;
     margin-bottom: 3px;
 }
-.wrapper .input-box{
+.login-container .wrapper .input-box{
     position: relative;
     width: 100%;
     height: 50px;
     margin: 30px 0;
 }
-.input-box input{
+.login-container .input-box input{
     width: 100%;
     height: 100%;
     background: transparent;
@@ -44,33 +44,20 @@
     color: #FFF;
     padding: 20px 45px 20px 20px;
 }
-.input-box input::placeholder {
+.login-container .input-box input::placeholder {
     color: #FFF;
 }
-.input-box i{
+.login-container .input-box i{
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
 }
-#input-box-password i{
+.login-container #input-box-password i{
     cursor: pointer;
 }
-.wrapper .forgot{
-    display: flex;
-    justify-content: flex-end;
-    font-size: 14.5px;
-    margin: -15px 0 15px;
-}
-.forgot a{
-    color: #FFF;
-    text-decoration: none;
-}
-.forgot a:hover{
-    text-decoration: underline;
-}
-.wrapper .btn{
+.login-container .wrapper .btn{
     width: 100%;
     height: 45px;
     background: transparent;
@@ -83,22 +70,268 @@
     color: #4CAF50;
     font-weight: 600;
 }
-.wrapper .btn:hover{
+.login-container .wrapper .btn:hover{
     transition: 0.7s;
     background: #4CAF50;
     color: #FFF;
 }
-.wrapper .register-link{
+
+/** ######################################## LOGINCLIENTE ######################################## */
+.logincliente-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0f479c;
+}
+.logincliente-container .wrapper{
+    width: 420px;
+    color: #FFF;
+}
+.logincliente-container .wrapper h1, p{
+    text-align: center;
+}
+.logincliente-container .wrapper h1{
+    font-size: 36px;
+    margin-bottom: 3px;
+}
+.logincliente-container .wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.logincliente-container .input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #FFF;
+    padding: 20px 45px 20px 20px;
+}
+.logincliente-container .input-box input::placeholder {
+    color: #FFF;
+}
+.logincliente-container .input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.logincliente-container #input-box-password i{
+    cursor: pointer;
+}
+.logincliente-container .wrapper .forgot{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.logincliente-container .forgot a{
+    color: #FFF;
+    text-decoration: none;
+}
+.logincliente-container .forgot a:hover{
+    text-decoration: underline;
+}
+.logincliente-container .wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: 600;
+}
+.logincliente-container .wrapper .btn:hover{
+    transition: 0.7s;
+    background: #4CAF50;
+    color: #FFF;
+}
+.logincliente-container .wrapper .register-link{
     font-size: 14.5;
     text-align: center;
     margin-top: 20px;
 }
-.register-link p a{
+.logincliente-container .register-link p a{
     color: #FFF;
     text-decoration: none;
     font-weight: 600;
 }
-.register-link p a:hover{
+.logincliente-container .register-link p a:hover{
+    text-decoration: underline;
+}
+
+/** ######################################## CADASTRACLIENTE ######################################## */
+.cadastracliente-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0f479c;
+}
+.cadastracliente-container .wrapper{
+    width: 420px;
+    color: #FFF;
+}
+.cadastracliente-container .wrapper h1, p{
+    text-align: center;
+}
+.cadastracliente-container .wrapper h1{
+    font-size: 36px;
+    margin-bottom: 3px;
+}
+.cadastracliente-container .wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.cadastracliente-container .input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #FFF;
+    padding: 20px 45px 20px 20px;
+}
+.cadastracliente-container .input-box input::placeholder {
+    color: #FFF;
+}
+.cadastracliente-container .input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.cadastracliente-container #input-box-password i{
+    cursor: pointer;
+}
+.cadastracliente-container .wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: 600;
+}
+.cadastracliente-container .wrapper .btn:hover{
+    transition: 0.7s;
+    background: #4CAF50;
+    color: #FFF;
+}
+.cadastracliente-container .wrapper .register-link{
+    font-size: 14.5;
+    text-align: center;
+    margin-top: 20px;
+}
+.cadastracliente-container .register-link p a{
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+.cadastracliente-container .register-link p a:hover{
+    text-decoration: underline;
+}
+
+/** ######################################## CADASTRAUSUARIO ######################################## */
+.cadastrausuario-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0f479c;
+}
+.cadastrausuario-container .wrapper{
+    width: 420px;
+    color: #FFF;
+}
+.cadastrausuario-container .wrapper h1, p{
+    text-align: center;
+}
+.cadastrausuario-container .wrapper h1{
+    font-size: 36px;
+    margin-bottom: 3px;
+}
+.cadastrausuario-container .wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.cadastrausuario-container .input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #FFF;
+    padding: 20px 45px 20px 20px;
+}
+.cadastrausuario-container .input-box input::placeholder {
+    color: #FFF;
+}
+.cadastrausuario-container .input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.cadastrausuario-container #input-box-password i{
+    cursor: pointer;
+}
+.cadastrausuario-container .wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: 600;
+}
+.cadastrausuario-container .wrapper .btn:hover{
+    transition: 0.7s;
+    background: #4CAF50;
+    color: #FFF;
+}
+.cadastrausuario-container .wrapper .register-link{
+    font-size: 14.5;
+    text-align: center;
+    margin-top: 20px;
+}
+.cadastrausuario-container .register-link p a{
+    color: #FFF;
+    text-decoration: none;
+    font-weight: 600;
+}
+.cadastrausuario-container .register-link p a:hover{
     text-decoration: underline;
 }
 
@@ -147,7 +380,9 @@ nav{
     color: #4CAF50;
     cursor: default;
 }
-
+.nav-container .user-info li a:hover{
+    color: #b30021;
+}
 
 /** NAV BAR 2 */
 .nav-container .user-info .cabecalho2 {
@@ -193,6 +428,9 @@ nav{
     border-radius: .6rem;
     overflow: auto;
 }
+.listausuario-container .table-body tr{
+    position: sticky;
+}
 .listausuario-container .table-body::-webkit-scrollbar{
     width: 0.5rem;
     height: 0.5rem;
@@ -214,7 +452,6 @@ nav{
     padding: 1rem;
 }
 .listausuario-container thead th{
-    position: sticky;
     top: 0;
     left: 0;
     background-color: #d5d1defe;
@@ -240,7 +477,7 @@ nav{
 }
 
 /** BOTÃO ALTERAR */
-.btn-alterar {
+.listausuario-container .btn-alterar {
     width: 6rem;
     padding: 10px 15px;
     background-color: #007ACC;
@@ -251,33 +488,33 @@ nav{
     cursor: pointer;
     transition: 400ms;
 }
-.btn-alterar .text {
+.listausuario-container .btn-alterar .text {
     color: white;
     font-weight: 700;
     font-size: 1em;
     transition: 400ms;
 }
-.btn-alterar:hover {
+.listausuario-container .btn-alterar:hover {
     background-color: transparent;
 }
-.btn-alterar:hover .text {
+.listausuario-container .btn-alterar:hover .text {
     color: #007ACC;
 }
 
 /** OPÇÕES DE VISUALIZAÇÃO - RADIO BUTTONS */
-.form-container{
+.listausuario-container .form-container{
     display: inline-flex;
     overflow: hidden;
     border-radius: 15px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
 }
-.form-container form{
+.listausuario-container .form-container form{
     display: flex;
 }
-.radio{
+.listausuario-container .radio{
     display: none;
 }
-.radio-label{
+.listausuario-container .radio-label{
     padding: 8px 14px;
     font-size: 14px;
     color: #FFF;
@@ -285,23 +522,22 @@ nav{
     cursor: pointer;
     transition: background 0.1s;
 }
-.radio-label:not(:last-of-type){
+.listausuario-container .radio-label:not(:last-of-type){
     border-right: 1px solid #34974d;
 }
-.radio:checked + .radio-label{
+.listausuario-container .radio:checked + .radio-label{
     background: #34974d
 }
 
 /** ######################################## LISTAPRODUTO ######################################## */
-#background {
+.listaproduto-container{
     background-color: #0f479c;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-.container {
+.listaproduto-container main.table{
     margin-top: 50px;
     width: 80vw;
     height: 90vh;
@@ -311,71 +547,162 @@ nav{
     border-radius: .8rem;
     overflow: hidden;
 }
-
-.container form {
+.listaproduto-container .table-header{
     display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-}
-
-.radio {
-    display: none;
-}
-
-.container input[type="radio"] {
-    margin-bottom: 10px;
-}
-
-.container table {
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+    height: 10%;
+    background-color: #fff4;
+    padding: 1rem 1rem;
 }
-
-.container th, .container td {
-    text-align: center;
-    padding: 10px;
+.listaproduto-container .table-body{
+    width: 95%;
+    max-height: calc(89% - 1.6rem);
+    background-color: #FFFb;
+    margin: .8rem auto;
+    border-radius: .6rem;
+    overflow: auto;
 }
-
-.container th {
-    background-color: #d5d1defe;
+.listaproduto-container .table-body th{
     position: sticky;
-    top: 0;
+}
+.listaproduto-container .table-body::-webkit-scrollbar{
+    width: 0.5rem;
+    height: 0.5rem;
+}
+.listaproduto-container .table-body::-webkit-scrollbar-thumb{
+    border-radius: .5rem;
+    background-color: #0004;
+    visibility: hidden;
+}
+.listaproduto-container .table-body:hover::-webkit-scrollbar-thumb{
+    visibility: visible;
+}
+.listaproduto-container table{
+    width: 100%;
+}
+.listaproduto-container td img{
+    width: 75px;
+    height: auto;
+    margin-right: .5rem;
+    border-radius: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.listaproduto-container td{
+    width: 15%;
+    height: 125px;
+}
+.listaproduto-container #desc{
+    width: 30%;
+}
+.listaproduto-container #desc a{
+    color: #007ACC;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.container tr:nth-child(even) {
+/** IMAGEM COM ZOOM */
+.listaproduto-container td img.zoom {
+    z-index: 999;
+    cursor: zoom-out;
+    display: block;
+    width: 500px;
+    max-width: 100%;
+    height: auto;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+/** ##################################### */
+.listaproduto-container table, th, td{
+    text-align: center;
+    border-collapse: collapse;
+    padding: 1rem;
+}
+.listaproduto-container thead th{
+    top: 0;
+    left: 0;
+    background-color: #d5d1defe;
+}
+.listaproduto-container tbody tr.even {
     background-color: #0000000b;
 }
-
-.container tr:hover {
+.listaproduto-container tbody tr:hover{
     transition: 0.5s;
     background-color: #fff6;
 }
-
-.container img {
-    width: 90px;
-    height: 90px;
+.listaproduto-container .status {
+    padding: .4rem 0;
+    border-radius: 2rem;
+}
+.listaproduto-container .status.ativo{
+    background-color: #86e49d;
+    color: #006b21;
+}
+.listaproduto-container .status.inativo{
+    background-color: #d893a3;
+    color: #b30021;
 }
 
-.container input[type="button"] {
-    background-color: #007ACC;
-    color: white;
+/** BOTÃO ALTERAR */
+.listaproduto-container .btn-alterar {
+    width: 6rem;
     padding: 10px 15px;
-    border: none;
+    background-color: #007ACC;
+    outline: 3px #007ACC solid;
+    outline-offset: -3px;
     border-radius: 2rem;
+    border: none;
     cursor: pointer;
     transition: 400ms;
 }
-
-.container input[type="button"]:hover {
+.listaproduto-container .btn-alterar .text {
+    color: white;
+    font-weight: 700;
+    font-size: 1em;
+    transition: 400ms;
+}
+.listaproduto-container .btn-alterar:hover {
     background-color: transparent;
+}
+.listaproduto-container .btn-alterar:hover .text {
     color: #007ACC;
 }
 
+/** OPÇÕES DE VISUALIZAÇÃO - RADIO BUTTONS */
+.listaproduto-container .form-container{
+    display: inline-flex;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+}
+.listaproduto-container .form-container form{
+    display: flex;
+}
+.listaproduto-container .radio{
+    display: none;
+}
+.listaproduto-container .radio-label{
+    padding: 8px 14px;
+    font-size: 14px;
+    color: #FFF;
+    background: #4CAF50;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+.listaproduto-container .radio-label:not(:last-of-type){
+    border-right: 1px solid #34974d;
+}
+.listaproduto-container .radio:checked + .radio-label{
+    background: #34974d
+}
 
 
 /** ######################################## LOJA ######################################## */
-#creditos-container{
+/* #creditos-container{
     margin: 50px;
     margin-top: 50px;
     max-width: 100%;
@@ -457,4 +784,4 @@ img{
     background-color: #34974d;
     width: 3rem;
 }
-
+ */

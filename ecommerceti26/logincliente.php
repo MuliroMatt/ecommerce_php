@@ -44,26 +44,28 @@
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>LOGIN DE CLIENTE</title>
     </head>
-    <body class="login-body">
-        <div class="wrapper">
-            <form action="logincliente.php" method="POST">
-                <h1>Login Cliente</h1>
-                <p>Por favor insira seu login e sua senha</p>
-                <div class="input-box" id="input-box-name">
-                    <input id="login-name" type="text" name="nomecliente" placeholder="Nome">
-                    <i class='bx bxs-user'></i>
+    <body>
+        <div class="logincliente-container">
+            <div class="wrapper">
+                <form action="logincliente.php" method="POST">
+                    <h1>Login Cliente</h1>
+                    <p>Por favor insira seu login e sua senha</p>
+                    <div class="input-box" id="input-box-name">
+                        <input id="login-name" type="text" name="nomecliente" placeholder="Nome">
+                        <i class='bx bxs-user'></i>
+                    </div>
+                    <div class="input-box" id="input-box-password">
+                        <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha">
+                        <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
+                    </div>
+                    <div class="forgot">
+                        <a href="recuperasenha.php">Esqueceu sua senha?</a>
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+                <div class="register-link">
+                    <p>Não tem uma conta? <a href="cadastracliente.php">Registre-se</a></p>
                 </div>
-                <div class="input-box" id="input-box-password">
-                    <input id="login-password" type="password" name="senha" minlength="6" maxlength="18" placeholder="Senha">
-                    <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
-                </div>
-                <div class="forgot">
-                    <a href="recuperasenha.php">Esqueceu sua senha?</a>
-                </div>
-                <button type="submit" class="btn">Login</button>
-            </form>
-            <div class="register-link">
-                <p>Não tem uma conta? <a href="cadastracliente.php">Registre-se</a></p>
             </div>
         </div>
     </body>

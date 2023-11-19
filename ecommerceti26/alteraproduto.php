@@ -73,7 +73,7 @@ while ($tbl = mysqli_fetch_array($retorno)) {
             <label>DESCRIÇÃO</label>
             <input type="text" name="descricao" value="<?=$descricao ?>" required>
             <label>IMAGEM ATUAL</label>
-            <img src="data:image/png;base64,<?= $imagem ?>">
+            <img width="70px" src="data:image/png;base64,<?= $imagem ?>">
             <label>NOVA IMAGEM</label>
             <input type="file" name="imagem">
             <p></p>
