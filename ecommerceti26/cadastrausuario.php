@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (passwordInput.type === "password") {
             passwordInput.type = "text";
-            passwordIcon.innerHTML = "<i class='bx bxs-lock-open-alt'></i>";
+            passwordIcon.innerHTML = "<i class='bx bx-lock-open-alt'></i>";
         } else {
             passwordInput.type = "password";
             passwordIcon.innerHTML = "<i class='bx bxs-lock-alt'></i>";

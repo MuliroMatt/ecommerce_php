@@ -9,10 +9,10 @@ $nomeusuario = $_SESSION['nomeusuario'];
 <nav>
     <div class="nav-container">
         <ul>
-            <li><a href="cadastrausuario.php">Cadastrar usuário</a></li>
             <li><a href="listausuario.php">Listar usuário</a></li>
-            <li><a href="cadastraproduto.php">Cadastrar produto</a></li>
+            <li><a href="cadastrausuario.php">Cadastrar usuário</a></li>
             <li><a href="listaproduto.php">Listar produto</a></li>
+            <li><a href="cadastraproduto.php">Cadastrar produto</a></li>
             <!-- <li><a href="listacliente.php">LISTAR CLIENTES</a></li>
             <li><a href="vendas.php">VENDAS</a></li>  -->
         </ul>

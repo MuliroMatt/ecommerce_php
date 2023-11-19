@@ -4,6 +4,7 @@ include("cabecalho.php");
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $nome = $_POST['nome'];
+    $nome = trim($nome);
     $ativo = $_POST['ativo'];
     $senha = $_POST['senha'];
 
@@ -45,24 +46,35 @@ while ($tbl = mysqli_fetch_array($retorno)) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/estiloadm.css">
+        <link rel="stylesheet" href="./css/style.css">
         <title>ALTERA USUÁRIO</title>
     </head>
-    <div>
-        <form action="alterausuario.php" method="post">
-            <input type="hidden" name="id" value="<?=$id ?>">
-            <label>NAME</label>
-            <input type="text" name="nome" value="<?=$nome ?>" required>
-            <label>SENHA</label>
-            <input type="password" name="senha" value="<?=$senha ?>" required>
-            <p></p>
-            <label>STATUS: <?= $check = ($ativo == 's') ? "ATIVO" : "INATIVO" ?></label>
-            <p></p>
-            <input type="radio" name="ativo" value="s"
-            <?= $ativo == "s" ? "checked" : "" ?>>ATIVO<br>
-            <input type="radio" name="ativo" value="n"
-            <?= $ativo == "n" ? "checked" : "" ?>>INATIVO<br>
-            <input type="submit" value="SALVAR">
-        </form>
-    </div>>
+    <body>
+        <div class="alterausuario-container">
+            <div class="wrapper">
+                <form action="alterausuario.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="id" value="<?=$id ?>">
+                    <h3>Nome</h3>
+                    <div class="input-box" id="input-box-name">
+                        <input type="text" name="nome" id="nome" value="<?=$nome?>">
+                    </div>
+                    <h3>Senha</h3>
+                    <div class="input-box" id="input-box-password">
+                        <input type="password" name="senha" id="senha" placeholder="********" value="<?=$senha?>">
+                    </div>
+                    
+                    <h3>Status: <?= $check = ($ativo == 's') ? "Ativo" : "Inativo" ?></h3>
+                    <div  id="form-container">
+                        <input type="radio" name="ativo" class="radio" value="s" id="radioativo"
+                        <?= $ativo == 's' ? "checked" : "" ?>>
+                        <label class="radio-label" for="radioativo">Ativo</label>
+                        <input type="radio" name="ativo" class="radio" value="n" id="radioinativo"
+                        <?= $ativo == 'n' ? "checked" : "" ?>>
+                        <label class="radio-label" for="radioinativo">Inativo</label>
+                    </div>
+                    <button type="submit" class="btn">Cadastrar</button>
+                </form>
+            </div>
+        </div>
+    </body>
 </html>
