@@ -10,6 +10,7 @@
 /*HEADER*/
 header{
     position: sticky;
+    z-index: 1;
     top: 0;
     width: 100%;
     height: 90px;
@@ -158,7 +159,7 @@ header{
 .dropdown:hover .content {
     opacity: 1;
     visibility: visible; /* Torna o elemento visível quando o mouse está sobre o .dropdown */
-    transition-delay: 0.5s; /* Remove o atraso na visibilidade durante o hover */
+    transition-delay: 0.3s; /* Remove o atraso na visibilidade durante o hover */
 }
 .content::before{
     /**criando a ponta da caixa de dialogo*/
@@ -237,7 +238,18 @@ nav{
 /** ######################################## LOJA ######################################## */
 .loja-container{
     min-height: 100vh;
-    top: 135px;
+}
+.loja-container .wrapper{
+
+    width: 1400px;
+    min-height: 100vh;
+    margin: 32px auto 0;
+}
+.loja-container .grid-products{
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 8px;
 }
 .product-card{
     align-items: flex-start;
@@ -246,12 +258,13 @@ nav{
     color: inherit;
     display: inline-flex;
     gap: 8px;
-    height: 350px;
+    height: 335px;
     flex-direction: column;
     outline-color: #0f479c;
     padding: 16px;
     text-decoration: none;
-    width: 215px;
+    width: 100%;
+    position: relative;
 }
 .product-card:hover{
     transition: 0.1s;
@@ -261,12 +274,13 @@ nav{
     border-radius: 4px;
     height: 164px;
     overflow: hidden;
+    position: relative;
     width: 100%;
 }
 .product-img img{
     aspect-ratio: 1 / 1;
     object-fit: contain;
-    width: 100%;      
+    width: 100%;    
 }
 .product-card p{
     overflow: hidden;
@@ -283,6 +297,12 @@ nav{
     font-weight: 900;
     line-height: 1.2;
     color: #000;
+}
+.price-container .product-stock{
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: red;
 }
 
 /** ######################################## LOGINCLIENTE ######################################## */
