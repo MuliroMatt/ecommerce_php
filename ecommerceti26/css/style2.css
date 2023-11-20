@@ -1,0 +1,465 @@
+/** GERAL */ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+/** ######################################## HEADER ######################################## */
+/*HEADER*/
+header{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    background-color: #0f479c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: .7px solid #ccc;
+}
+.header-container{
+    width: 1400px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content-left{
+    width: 77%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content-left a{
+    text-decoration: none;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+}
+.content-left h1{
+    font-size: 45px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* BARRA DE PESQUISA*/
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+}
+.search__input {
+    font-family: inherit;
+    font-size: inherit;
+    background-color: #FFF;
+    border: none;
+    color: #646464;
+    padding: 16px;
+    border-radius: 8px;
+    width: 878px;
+    height: 58px;
+    transition: all ease-in-out .5s;
+    margin-right: -2rem;
+}
+
+.search__input:hover, .search__input:focus {
+    box-shadow: 0 0 1em #00000013;
+}
+
+.search__input:focus {
+    outline: none;
+    background-color: #f0eeee;
+}
+
+.search__input::-webkit-input-placeholder {
+    font-weight: 100;
+    color: #ccc;
+}
+
+.search__input:focus + .search__button {
+    background-color: #f0eeee;
+}
+
+.search__button {
+    border: none;
+    background-color: #FFF;
+    margin-top: .1em;
+}
+
+.search__button:hover {
+    cursor: pointer;
+}
+
+.search__icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: #b4b4b4;
+}
+/*----------*/
+
+.content-right{
+    width: 23%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.content-right i{
+    font-size: 35px;
+    color: #FFF;
+    padding: 5px;
+}
+.content-right a{
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #FFF;
+    display: flex;
+    align-items: center;
+}
+.content-right .user-actions{
+    width: 200px;
+    padding: 10px;
+}
+
+/*DROPDOWN MENU*/
+.dropdown a{
+    display: flex;
+    padding: 10px 15px;
+}
+.dropdown .content a{
+    color: #000;
+    padding: 5px 15px;
+}
+.dropdown .content a:hover{
+    color: #CCC;
+}
+.dropdown .content a:hover i{
+    color: #CCC;
+}
+.dropdown .content i{
+    color: #000;
+    font-size: 15px;
+}
+.dropdown .content {
+    border-radius: 5px;
+    position: absolute;
+    background-color: #FFF;
+    width: 180px;
+    opacity: 0;
+    visibility: hidden; /* Oculta o elemento enquanto a opacidade é 0 */ /* Adiciona uma transição para a opacidade e atrasa a visibilidade para que a transição ocorra antes de tornar o elemento invisível novamente */
+    box-shadow: .5px .5px 2px 1px hsla(0, 0%, 0%, 0.502);
+}
+
+.dropdown:hover .content {
+    opacity: 1;
+    visibility: visible; /* Torna o elemento visível quando o mouse está sobre o .dropdown */
+    transition-delay: 0.5s; /* Remove o atraso na visibilidade durante o hover */
+}
+.content::before{
+    /**criando a ponta da caixa de dialogo*/
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #FFF;
+    position: absolute;
+    top: -7px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+/*-----------------------*/
+.content-right .icon-actions{
+    width: 120px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+
+/*NAV*/
+nav{
+    background-color: #FFF;
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: .7px solid #ccc;
+}
+.nav-container{
+    width: 1400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-container ul{
+    width: 100%;
+    list-style: none;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-container li{
+    height: 100%;
+    width: 100%;
+}
+.nav-container li a{
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: #878787;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid transparent;
+}
+.nav-container li a:hover{
+    transition: 0.3s;
+    color: #0f479c;
+    border-bottom: 2px solid #0f479c;
+}
+
+
+
+
+/** ######################################## LOJA ######################################## */
+.loja-container{
+    min-height: 100vh;
+    top: 135px;
+}
+.product-card{
+    align-items: flex-start;
+    border-radius: 8px;
+    border: 1px solid rgb(210, 210, 210);
+    color: inherit;
+    display: inline-flex;
+    gap: 8px;
+    height: 350px;
+    flex-direction: column;
+    outline-color: #0f479c;
+    padding: 16px;
+    text-decoration: none;
+    width: 215px;
+}
+.product-card:hover{
+    transition: 0.1s;
+    border: 1px solid #0f479c;
+}
+.product-img{
+    border-radius: 4px;
+    height: 164px;
+    overflow: hidden;
+    width: 100%;
+}
+.product-img img{
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    width: 100%;      
+}
+.product-card p{
+    overflow: hidden;
+    margin-top: 4px;
+    font-size: 1rem;
+}
+.price-container{
+    margin-top: auto;
+    display: grid;
+    gap: 4px;
+}
+.price-container .product-price{
+    font-size: 1.25rem;
+    font-weight: 900;
+    line-height: 1.2;
+    color: #000;
+}
+
+/** ######################################## LOGINCLIENTE ######################################## */
+.logincliente-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 87,72727vh;
+    padding-top: 135px;
+    background-color: #FFF;
+}
+.logincliente-container .wrapper{
+    width: 420px;
+    color: #0f479c;
+}
+.logincliente-container .wrapper h1, .logincliente-container .wrapper p{
+    text-align: center;
+}
+.logincliente-container .wrapper h1{
+    font-size: 36px;
+    margin-bottom: 3px;
+}
+.logincliente-container .wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.logincliente-container .input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #0f479c;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #0f479c;
+    padding: 20px 45px 20px 20px;
+}
+.logincliente-container .input-box input::placeholder {
+    color: #0f479c;
+}
+.logincliente-container .input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.logincliente-container #input-box-password i{
+    cursor: pointer;
+}
+.logincliente-container .wrapper .forgot{
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14.5px;
+    margin: -15px 0 15px;
+}
+.logincliente-container .forgot a{
+    color: #0f479c;
+    text-decoration: none;
+}
+.logincliente-container .forgot a:hover{
+    text-decoration: underline;
+}
+.logincliente-container .wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: 600;
+}
+.logincliente-container .wrapper .btn:hover{
+    transition: 0.7s;
+    background: #4CAF50;
+    color: #FFF;
+}
+.logincliente-container .wrapper .register-link{
+    font-size: 14.5;
+    text-align: center;
+    margin-top: 20px;
+}
+.logincliente-container .register-link p a{
+    color: #0f479c;
+    text-decoration: none;
+    font-weight: 600;
+}
+.logincliente-container .register-link p a:hover{
+    text-decoration: underline;
+}
+
+/** ######################################## CADASTRACLIENTE ######################################## */
+.cadastracliente-container{
+    min-height: 87,72727vh;
+    padding-top: 135px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF;
+}
+.cadastracliente-container .wrapper{
+    width: 420px;
+    color: #0f479c;
+}
+.cadastracliente-container .wrapper h1, .cadastracliente-container .wrapper p{
+    text-align: center;
+}
+.cadastracliente-container .wrapper h1{
+    font-size: 36px;
+    margin-bottom: 3px;
+}
+.cadastracliente-container .wrapper .input-box{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+.cadastracliente-container .input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #0f479c;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #0f479c;
+    padding: 20px 45px 20px 20px;
+}
+.cadastracliente-container .input-box input::placeholder {
+    color: #0f479c;
+}
+.cadastracliente-container .input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.cadastracliente-container #input-box-password i{
+    cursor: pointer;
+}
+.cadastracliente-container .wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #4CAF50;
+    font-weight: 600;
+}
+.cadastracliente-container .wrapper .btn:hover{
+    transition: 0.7s;
+    background: #4CAF50;
+    color: #FFF;
+}
+.cadastracliente-container .wrapper .register-link{
+    font-size: 14.5;
+    text-align: center;
+    margin-top: 20px;
+}
+.cadastracliente-container .register-link p a{
+    color: #0f479c;
+    text-decoration: none;
+    font-weight: 600;
+}
+.cadastracliente-container .register-link p a:hover{
+    text-decoration: underline;
+}

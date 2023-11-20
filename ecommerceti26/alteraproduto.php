@@ -5,10 +5,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $id = $_POST['id'];
     $nome = $_POST['nome'];
     $nome = trim($nome);
-    $nome = mb_strtoupper($nome, 'UTF-8');
     $descricao = $_POST['descricao'];
     $descricao = trim($descricao);
-    $descricao = strtolower($descricao);
     $quantidade = $_POST['quantidade'];
     $valor = $_POST['valor'];
     $ativo = $_POST['ativo'];
@@ -58,6 +56,7 @@ while ($tbl = mysqli_fetch_array($retorno)) {
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
+        
         <title>ALTERA PRODUTO</title>
     </head>
     <body>
@@ -100,7 +99,7 @@ while ($tbl = mysqli_fetch_array($retorno)) {
                         <?= $ativo == 'n' ? "checked" : "" ?>>
                         <label class="radio-label" for="radioinativo">Inativo</label>
                     </div>
-                    <button type="submit" class="btn">Cadastrar</button>
+                    <button type="submit" class="btn">Alterar</button>
                 </form>
             </div>
         </div>

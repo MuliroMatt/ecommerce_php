@@ -8,15 +8,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $ativo = $_POST['ativo'];
     $senha = $_POST['senha'];
 
-    $sql = "SELECT usu_tempero  FROM usuarios WHERE usu_nome = '$nome'";
-    $retorno = mysqli_query($link, $sql);
-    while ($tbl = mysqli_fetch_array($retorno)) {
-        $tempero = $tbl[0];
-    }
-    if ( $senha != $senha2)
-    {
-        $senha = md5($senha . $tempero);
-    }
+    // $sql = "SELECT usu_tempero  FROM usuarios WHERE usu_nome = '$nome'";
+    // $retorno = mysqli_query($link, $sql);
+    // while ($tbl = mysqli_fetch_array($retorno)) {
+    //     $tempero = $tbl[0];
+    // }
+    // if ( $senha != $senha2)
+    // {
+    //     $senha = md5($senha . $tempero);
+    // }
 
     $sql = "UPDATE usuarios SET usu_senha = '$senha', usu_nome = '$nome', usu_ativo = '$ativo' WHERE usu_id = $id";
 
@@ -47,6 +47,7 @@ while ($tbl = mysqli_fetch_array($retorno)) {
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./css/style.css">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>ALTERA USUÁRIO</title>
     </head>
     <body>
@@ -57,10 +58,12 @@ while ($tbl = mysqli_fetch_array($retorno)) {
                     <h3>Nome</h3>
                     <div class="input-box" id="input-box-name">
                         <input type="text" name="nome" id="nome" value="<?=$nome?>">
+                        <i class='bx bxs-user'></i>
                     </div>
                     <h3>Senha</h3>
                     <div class="input-box" id="input-box-password">
-                        <input type="password" name="senha" id="senha" placeholder="********" value="<?=$senha?>">
+                        <input type="password" name="senha" id="senha" placeholder="********">
+                        <span id="MostraSenha" onclick="MostraSenha()"><i class='bx bxs-lock-alt'></i></span>
                     </div>
                     
                     <h3>Status: <?= $check = ($ativo == 's') ? "Ativo" : "Inativo" ?></h3>
@@ -72,9 +75,24 @@ while ($tbl = mysqli_fetch_array($retorno)) {
                         <?= $ativo == 'n' ? "checked" : "" ?>>
                         <label class="radio-label" for="radioinativo">Inativo</label>
                     </div>
-                    <button type="submit" class="btn">Cadastrar</button>
+                    <button type="submit" class="btn">Alterar</button>
                 </form>
             </div>
         </div>
     </body>
 </html>
+
+<script>
+    function MostraSenha() {
+        var passwordInput = document.getElementById("senha");
+        var passwordIcon = document.getElementById("MostraSenha");
+
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+            passwordIcon.innerHTML = "<i class='bx bx-lock-open-alt'></i>";
+        } else {
+            passwordInput.type = "password";
+            passwordIcon.innerHTML = "<i class='bx bxs-lock-alt'></i>";
+        }
+    }
+</script>

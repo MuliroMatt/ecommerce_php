@@ -19,41 +19,44 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/style2.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <title>LOJA</title>
     </head>
-    
-    <main>
-        <section id="creditos-container">
-            <?php
-
-            while ($tbl = mysqli_fetch_array($retorno)) {
-
-            ?>
-            <div class="product">
-                <img src="data:image/jpeg;base64,<?=$tbl[5] ?>" alt="Product Image">
-                <hr>
-                <h3 class="product-title"><?=$tbl[1] ?></h3>
+    <body>
+        <div class="loja-container">
+            <div class="wrapper">
+                <?php
+                while ($tbl = mysqli_fetch_array($retorno)) {
+                ?>
+                <a href="verproduto.php?id=<?= $tbl[0] ?>" class="product-card">
+                    <div class="product-img">
+                        <img src="data:image/jpeg;base64,<?=$tbl[5] ?>" alt="Product Image">
+                    </div>
+                    <p class="product-title"><?=$tbl[1] ?></p>
+                    <?php
+                    if ($tbl[3] > 0) {
+                    ?>
+                    <section class="price-container">
+                        <p class="product-price">R$ <?=$tbl[4] ?></p>
+                    </section>
+                    <?php
+                    } else { //FORA DE ESTOQUE
+                    ?>
+                    <section class="price-container">
+                        <span class="product-stock">Fora de Estoque</span>
+                    </section>
+                    <?php
+                    }
+                    ?>
                 
-                <?php
-                if ($tbl[3] > 0) {
-                ?>
-                    <h3 class="product-price">R$ <?=$tbl[4] ?></h3>
-                    <button class="product-button" onclick="location.href='verproduto.php?id=<?= $tbl[0] ?>'" >Comprar</button>
-                <?php
-                } else { //FORA DE ESTOQUE
-                ?>
-                <span class="product-stock">Fora de Estoque</span>
+                </a>
                 <?php
                 }
                 ?>
             </div>
-            <?php
-            }
-            ?>
-        </section>
-    </main>
+        </div>
+    </body>
 </html>

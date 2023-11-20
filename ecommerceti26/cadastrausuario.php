@@ -31,7 +31,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES('$nome','$senha','s', '$tempero')";
             mysqli_query($link, $sql);
             echo "<script>window.alert('USUÁRIO CADASTRADO!');</script>";
-            echo "<script>window.location.href='cadastrousuario.php';</script>";
+            echo "<script>window.location.href='cadastrausuario.php';</script>";
         }
     }
     else {
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     <body>
         <div class="cadastrausuario-container">
             <div class="wrapper">
-                <form action="cadastrousuario.php" method="post">
+                <form action="cadastrausuario.php" method="post">
                     <h1>Registrar usuário</h1>
                     <div class="input-box" id="input-box-name">
                         <input id="login-name" type="text" name="nome" placeholder="Nome">

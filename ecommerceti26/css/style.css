@@ -76,100 +76,7 @@
     color: #FFF;
 }
 
-/** ######################################## LOGINCLIENTE ######################################## */
-.logincliente-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #0f479c;
-}
-.logincliente-container .wrapper{
-    width: 420px;
-    color: #FFF;
-}
-.logincliente-container .wrapper h1, p{
-    text-align: center;
-}
-.logincliente-container .wrapper h1{
-    font-size: 36px;
-    margin-bottom: 3px;
-}
-.logincliente-container .wrapper .input-box{
-    position: relative;
-    width: 100%;
-    height: 50px;
-    margin: 30px 0;
-}
-.logincliente-container .input-box input{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 1px solid #FFF;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #FFF;
-    padding: 20px 45px 20px 20px;
-}
-.logincliente-container .input-box input::placeholder {
-    color: #FFF;
-}
-.logincliente-container .input-box i{
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 20px;
-}
-.logincliente-container #input-box-password i{
-    cursor: pointer;
-}
-.logincliente-container .wrapper .forgot{
-    display: flex;
-    justify-content: flex-end;
-    font-size: 14.5px;
-    margin: -15px 0 15px;
-}
-.logincliente-container .forgot a{
-    color: #FFF;
-    text-decoration: none;
-}
-.logincliente-container .forgot a:hover{
-    text-decoration: underline;
-}
-.logincliente-container .wrapper .btn{
-    width: 100%;
-    height: 45px;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 2px solid #4CAF50;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #4CAF50;
-    font-weight: 600;
-}
-.logincliente-container .wrapper .btn:hover{
-    transition: 0.7s;
-    background: #4CAF50;
-    color: #FFF;
-}
-.logincliente-container .wrapper .register-link{
-    font-size: 14.5;
-    text-align: center;
-    margin-top: 20px;
-}
-.logincliente-container .register-link p a{
-    color: #FFF;
-    text-decoration: none;
-    font-weight: 600;
-}
-.logincliente-container .register-link p a:hover{
-    text-decoration: underline;
-}
+
 
 /** ######################################## CADASTRACLIENTE ######################################## */
 .cadastracliente-container{
@@ -371,7 +278,7 @@
     border-radius: 5px;
     font-size: 16px;
     color: #fff;
-    padding: 20px 45px 20px 20px;
+    padding: 10px 45px 10px 20px;
     resize: none;
 }
 .cadastraproduto-container .input-box input::placeholder {
@@ -484,19 +391,6 @@
     color: #fff;
     padding: 20px 45px 20px 20px;
 }
-.alterausuario-container .input-box textarea{
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    border: none;
-    outline: none;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    font-size: 16px;
-    color: #fff;
-    padding: 20px 45px 20px 20px;
-    resize: none;
-}
 .alterausuario-container .input-box input::placeholder {
     color: #fff;
 }
@@ -507,9 +401,10 @@
     transform: translateY(-50%);
     font-size: 20px;
 }
-.alterausuario-container #input-box-desc {
-    height: 150px;
+.alterausuario-container #input-box-password i{
+    cursor: pointer;
 }
+
 .alterausuario-container .wrapper .btn{
     width: 100%;
     height: 45px;
@@ -528,48 +423,6 @@
     transition: 0.7s;
     background: #4CAF50;
     color: #FFF;
-}
-.alterausuario-container #input-box-img{
-    height: auto;
-}
-.alterausuario-container img{
-    width: 420px;
-    height: auto;
-}
-
-/** -----ADICIONAR IMAGEM INPUT----- */
-.alterausuario-container .picture-input{
-    display: none;
-}
-.alterausuario-container .picture{
-    width: 420px;
-    aspect-ratio: 16/9;
-    background: #ddd;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #aaa;
-    border: 2px dashed currentColor;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: color 300ms ease-in-out, background 300ms ease-in-out;
-    outline: none;
-}
-.alterausuario-container .picture:hover{
-    color: #777;
-    background: #aaa;
-}
-.alterausuario-container .picture:active{
-    color: #999;
-    background: #ccc;
-}
-.alterausuario-container .picture:focus{
-    color: #777;
-    background: #aaa;
-    box-shadow: 0 0 10px rgba(0, 0 , 0, .3);
-}
-.picture-img{
-    max-width: 100%;
 }
 
 /** OPÇÕES DE VISUALIZAÇÃO - RADIO BUTTONS */
@@ -649,7 +502,7 @@
     border-radius: 5px;
     font-size: 16px;
     color: #fff;
-    padding: 20px 45px 20px 20px;
+    padding: 10px 45px 10px 20px;
     resize: none;
 }
 .alteraproduto-container .input-box input::placeholder {
@@ -690,6 +543,7 @@
 .alteraproduto-container img{
     width: 420px;
     height: auto;
+    border-radius: 5px;
 }
 
 /** -----ADICIONAR IMAGEM INPUT----- */
@@ -805,13 +659,6 @@ nav{
     color: #b30021;
 }
 
-/** NAV BAR 2 */
-.nav-container .user-info .cabecalho2 {
-    width: 40%;
-}
-.user-info i{
-    font-size: 30px;
-}
 
 
 /** ######################################## LISTAUSUARIO ######################################## */
@@ -1122,87 +969,3 @@ nav{
 }
 
 
-/** ######################################## LOJA ######################################## */
-/* #creditos-container{
-    margin: 50px;
-    margin-top: 50px;
-    max-width: 100%;
-    margin-bottom: 150px; 
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:flex-start;
-}
-
-.product{
-    height: 500px;
-    width: 300px;
-    background: #ccc;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 15px 15px;
-}
-img{
-    width: 220px;
-    height: 220px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-.product hr{
-    margin: 0;
-    width: 300px;
-    border-color: #34974d;
-}
-.product h3{
-    margin: 10px 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    color: #000;
-    font-size: 25px;
-    font-weight: bold;
-    text-align: center;
-}
-.product-stock{
-    width: 150px;    
-    height: 40px;
-    cursor: default;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #973434;
-    background-color: #a83a3a;
-    color: #fff;
-}
-.product-btn-alterar {
-    align-items: center;
-    background-color: transparent;
-    color: #34974d;
-    cursor: pointer;
-    display: flex;
-    font-family: ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1.5;
-    text-decoration: none;
-    text-transform: uppercase;
-    outline: 0;
-    border: 0;
-    padding: 1rem;
-}
-
-.product-btn-alterar:before {
-    background-color: #34974d;
-    content: "";
-    display: inline-block;
-    height: 1px;
-    margin-right: 10px;
-    transition: all .42s cubic-bezier(.25,.8,.25,1);
-    width: 0;
-}
-
-.product-btn-alterar:hover:before {
-    background-color: #34974d;
-    width: 3rem;
-}
- */

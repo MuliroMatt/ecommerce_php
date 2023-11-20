@@ -1,7 +1,7 @@
 <?php
-    session_start();//*INICIA A SESSÃO
+    
 
-    include("conectadb.php");
+    include("cabecalho2.php");
 
     if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $nome = $_POST['nomecliente'];
@@ -40,7 +40,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width-device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./css/style.css">
+        <link rel="stylesheet" href="./css/style2.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
         <title>LOGIN DE CLIENTE</title>
     </head>
