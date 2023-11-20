@@ -27,7 +27,7 @@
         <title>LOJA</title>
     </head>
     <body>
-        <div class="loja-container">
+        <main class="loja-container">
             <div class="wrapper">
                 <h1>Produtos</h1>
                 <div class="grid-products">
@@ -62,6 +62,6 @@
                     ?>
                 </div>
             </div>
-        </div>
+        </main>
     </body>
 </html>

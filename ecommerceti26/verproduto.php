@@ -84,27 +84,12 @@
     while($tbl = mysqli_fetch_array($retorno)) {
         $id = $tbl[0];
         $nomeproduto = $tbl[1];
+        $quantidade = $tbl[3];
         $descricao = $tbl[2];
         $preco = $tbl[4];
         $imagem_atual = $tbl[5];
     }
 
-    //*CORAÇÃOZINHO DO FAVORITOS
-    if (isset($idusuario)) {
-        $sql = "SELECT COUNT(fav_id) FROM favoritos WHERE fav_cli_id = $idusuario AND fav_pro_id = $id";
-        $retorno = mysqli_query($link,$sql);
-
-        while ($tbl = mysqli_fetch_array($retorno)) {
-            $cont = $tbl[0];
-            if($cont <= 0){
-                $coracao = "https://icones.pro/wp-content/uploads/2021/02/icone-de-coeur-noir.png";
-            } else{
-                $coracao = "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/800px-Heart_coraz%C3%B3n.svg.png";
-            }
-        }
-    } else {
-        $coracao = "https://icones.pro/wp-content/uploads/2021/02/icone-de-coeur-noir.png";
-    }
 ?>
 
 <!DOCTYPE html>
@@ -116,25 +101,84 @@
     <title>Ver Produto</title>
 </head>
 <body>
-    <div class="formulario">
-        <form  class="visualizaproduto" action="verproduto.php" method="post" enctype="multipart/form-data">
-            <input type="hidden" name="id" value="<?= $id ?>" readonly>
-            <label>NOME</label>
-            <input type="text" name="nomeproduto" id="nome" value="<?= $nomeproduto ?>" readonly>
-            <label>DESCRIÇÃO</label>
-            <textarea name="descricao" readonly><?= $descricao ?></textarea>
-            <label>QUANTIDADE</label>
-            <input type="number" name="quantidade" id="quantidade" min="1" value="1">
-            <label>PREÇO</label>
-            <input type="decimal" name="preco" id="preco" value="R$ <?= $preco ?>" readonly>
-            <input type="submit" value="ADICIONAR AO CARRINHO">
-        </form>
-    </div>
-    <div style="position: relative;">
-        <a href="favoritar.php?id=<?= $id ?>" style="position: absolute; top: 0; left: 0;">
-            <img src="<?php echo $coracao; ?>" width="50" height="50" />
-        </a>
-        <td><img name="imagem_atual" class="imagem_atual" src="data:image/jpeg;base64,<?= $imagem_atual ?>"></td>
-    </div>
+    <main class="verproduto-container">
+        <div class="wrapper">
+            <div class="small-container">
+                <div class="col-2" id="product-image">
+                    <td><img name="imagem_atual" class="imagem_atual" src="data:image/jpeg;base64,<?= $imagem_atual ?>"></td>
+                </div>
+                <div class="col-2" id="product-info">
+                    <h4>Produtos</h4>
+                    <div class="pro-container">
+                        <h1><?=$nomeproduto?></h1>
+                        <?php
+                        if (isset($idusuario)) {
+                            $sql = "SELECT COUNT(fav_id) FROM favoritos WHERE fav_cli_id = $idusuario AND fav_pro_id = $id";
+                            $retorno = mysqli_query($link,$sql);
+                            while ($tbl = mysqli_fetch_array($retorno)) {
+                                $cont = $tbl[0];
+                                if($cont <= 0){
+                                ?>
+                                <a class="fav-icon" href="favoritar.php?id=<?= $id ?>">
+                                    <i class='bx bx-heart bx-flip-horizontal' style='color:#000' ></i>
+                                </a>
+                                <?php
+                                } else{
+                                ?>
+                                <a class="fav-icon" href="favoritar.php?id=<?= $id ?>">
+                                    <i class='bx bxs-heart bx-flip-horizontal' style='color:#000' ></i>
+                                </a>
+                                <?php
+                                }
+                            }
+                        } else {
+                            ?>
+                            <a class="fav-icon" href="favoritar.php?id=<?= $id ?>">
+                                <i class='bx bx-heart bx-flip-horizontal' style='color:#000' ></i>
+                            </a>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                    <h2>R$ <?=$preco?></h2>
+                    <form  class="visualizaproduto" action="verproduto.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<?= $id ?>" readonly>
+                        <input type="hidden" name="nomeproduto" id="nome" value="<?= $nomeproduto ?>" readonly>
+                        <input type="hidden" name="descricao" readonly value="<?= $descricao ?>">
+                        <input type="hidden" name="preco" id="preco" value="R$ <?= $preco ?>" readonly>
+                        <div class="qtd-container">
+                            <button type="button" class="qtd-button" id="decrement" onclick="stepper(this)"> - </button>
+                            <input type="number" name="quantidade" id="quantidade" min="1" value="1" max="<?= $quantidade ?>" step="1" readonly>
+                            <button type="button" class="qtd-button" id="increment" onclick="stepper(this)"> + </button>
+                        </div>
+                        <button id="cart-btn" type="submit">Adicionar ao carrinho</button>
+                    </form>
+                    <hr>
+                    <div class="product-desc">
+                        <h3>Descrição</h3>
+                        <p><?=$descricao?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 </body>
 </html>
+<script>
+    const myInput = document.getElementById("quantidade");
+    function stepper(btn){
+        let id = btn.getAttribute("id");
+        let min = myInput.getAttribute("min");
+        let max = myInput.getAttribute("max");
+        let step = myInput.getAttribute("step");
+        let val = myInput.getAttribute("value");
+        let calcStep = (id == "increment") ? (step*1) : (step * -1);
+        let newValue = parseInt(val) + calcStep;
+
+        if(newValue >= min && newValue <= max){
+            myInput.setAttribute("value", newValue);
+        }
+    }
+</script>
+
+
