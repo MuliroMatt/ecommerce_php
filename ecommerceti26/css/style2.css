@@ -249,6 +249,7 @@ nav{
     display: grid;
     grid-template-columns: repeat(7, auto);
     gap: 8px;
+    background-color: purple;
 }
 .product-card{
     align-items: flex-start;
