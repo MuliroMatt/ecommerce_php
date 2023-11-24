@@ -38,6 +38,7 @@ if (isset($_SESSION['nomeusuario'])) {
                         <div class="dropdown">
                             <a href="perfil.php?id=<?= ($idusuario) ?>"><i class='bx bx-user-circle'></i>Olá, <?=$nomeusuario?></a>
                             <div class="content">
+                                <a href="perfil.php?id=<?= ($idusuario) ?>"><i class='bx bx-user'></i>Perfil</a>
                                 <a href="favoritos.php?id=<?= ($idusuario) ?>"><i class='bx bx-heart'></i>Favoritos</a>
                                 <a href="carrinho.php?id=<?= ($idusuario) ?>"><i class='bx bx-cart'></i>Carrinho</a>
                                 <a href="logoutcliente.php"><i class='bx bx-exit'></i>Sair</a>

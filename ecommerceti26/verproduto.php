@@ -98,7 +98,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style2.css">
-    <title>Ver Produto</title>
+    <title>AceStore | <?=$nomeproduto?></title>
 </head>
 <body>
     <main class="verproduto-container">
@@ -140,6 +140,9 @@
                         }
                         ?>
                     </div>
+                    <?php
+                    if ($quantidade > 0) {
+                    ?>
                     <h2>R$ <?=$preco?></h2>
                     <form  class="visualizaproduto" action="verproduto.php" method="post" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?= $id ?>" readonly>
@@ -153,6 +156,25 @@
                         </div>
                         <button id="cart-btn" type="submit">Adicionar ao carrinho</button>
                     </form>
+                    <?php
+                    }else{
+                    ?>
+                    <h2 id="esgotado">Esgotado</h2>
+                    <form  class="visualizaproduto" action="verproduto.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="id" value="<?= $id ?>" readonly>
+                        <input type="hidden" name="nomeproduto" id="nome" value="<?= $nomeproduto ?>" readonly>
+                        <input type="hidden" name="descricao" readonly value="<?= $descricao ?>">
+                        <input type="hidden" name="preco" id="preco" value="R$ <?= $preco ?>" readonly>
+                        <div class="qtd-container-esgotado">
+                            <button type="button" class="qtd-button" id="decrement" onclick="stepper(this)" disabled> - </button>
+                            <input type="number" name="quantidade" id="quantidade" min="1" value="1" max="<?= $quantidade ?>" step="1" readonly>
+                            <button type="button" class="qtd-button" id="increment" onclick="stepper(this)" disabled> + </button>
+                        </div>
+                        <button id="cart-btn-disabled" type="submit" disabled>Adicionar ao carrinho</button>
+                    </form>
+                    <?php
+                    }
+                    ?>
                     <hr>
                     <div class="product-desc">
                         <h3>Descrição</h3>

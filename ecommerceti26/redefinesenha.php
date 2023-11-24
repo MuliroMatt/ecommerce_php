@@ -37,20 +37,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/estiloadm.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Redefine Senha</title>
 </head>
 <body>
     <main>
         <form action="redefinesenha.php" method="POST">
             <h1>REDEFINIR SENHA</h1>
-            <input type="text" name="email" id="email" placeholder="Email" required>
-            <p></p>
-            <input type="text" name="cod" id="cod" placeholder="Código" required>
-            <p></p>
-            <input type="password" name="senha" id="senha" placeholder="Senha">
-            <p></p>
+            <div class="input-box">
+                <input type="text" name="email" id="email" placeholder="Email" required>
+            </div>
+            <div class="input-box">
+                <input type="text" name="cod" id="cod" placeholder="Código" required>
+            </div>
+            <div class="input-box">
+                <input type="password" name="senha" id="senha" placeholder="Senha">
+            </div>
             <input type="submit" name="login" value="REDEFINIR">
+            <button type="submit" class="btn">Redefinir</button>
         </form>
         
         <p id="msg">

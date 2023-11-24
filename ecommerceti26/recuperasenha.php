@@ -56,14 +56,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style2.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Recupera Senha</title>
 </head>
-<body class="login-body">
+<body class="logincliente-container">
     <div class="wrapper">
         <form action="recuperasenha.php" method="POST">
             <h1>Redefinir Senha</h1>
+            <p>
+                Enviaremos um link de redefinição de senha no seu E-mail
+            </p>
             <div class="input-box">
                 <input type="text" id="email" name="email" placeholder="Email">
             </div>
