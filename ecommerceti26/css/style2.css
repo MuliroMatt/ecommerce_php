@@ -321,15 +321,15 @@ nav{
 }
 .price-container .product-price{
     font-size: 1.25rem;
-    font-weight: bold;
+    font-weight: 500;
     line-height: 1.2;
     color: #000;
 }
 .price-container .product-stock{
     font-size: 1.25rem;
-    font-weight: bold;
+    font-weight: 600;
     line-height: 1.2;
-    color: red;
+    color: #ef233c;
 }
 
 /** ######################################## LOGINCLIENTE ######################################## */
@@ -557,7 +557,7 @@ nav{
     margin-bottom: 30px;
 }
 #product-info #esgotado{
-    color: red;
+    color: #ef233c;
 }
 #product-info #cart-btn{
     width: 100%;
@@ -803,7 +803,7 @@ input::-webkit-inner-spin-button{
 }
 .carrinho-container #decrement:hover{
     transition: 0.3s;
-    color: #4CAF50;
+    color: #ef233c;
 }
 .carrinho-container .qtd-btn{
     color: #878787;
@@ -818,9 +818,10 @@ input::-webkit-inner-spin-button{
 .carrinho-container .delete-btn i{
     font-size: 25px;
     color: #0f479c;
+    cursor: pointer;
 }
 .carrinho-container .delete-btn i:hover{
-    color: crimson;
+    color: #ef233c;
 }
 .carrinho-container .finaliza-container{
     background-color: #fafafa;

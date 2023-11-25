@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $quantidade = $_POST['quantidade'];
     $valor = $_POST['valor'];
     $ativo = $_POST['ativo'];
+    $categoria = $_POST['categoria'];
 
     // Verifica se um novo arquivo foi enviado
     if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
@@ -20,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Atualiza os dados no banco de dados
     $sql = "UPDATE produtos SET pro_nome = '$nome', pro_quantidade = '$quantidade', pro_valor = '$valor', pro_descricao = '$descricao', 
-        pro_ativo = '$ativo'";
+        pro_ativo = '$ativo', pro_categoria = '$categoria'";
     
     // Adiciona a atualização da imagem à consulta, caso uma nova imagem tenha sido enviada
     if (isset($imagem_base64)) {
@@ -46,6 +47,7 @@ while ($tbl = mysqli_fetch_array($retorno)) {
     $valor = $tbl[4];
     $imagem = $tbl[5];
     $ativo = $tbl[6];
+    $categoria = $tbl[7];
 }
 ?>
 
@@ -68,18 +70,27 @@ while ($tbl = mysqli_fetch_array($retorno)) {
                     <div class="input-box" id="input-box-name">
                         <input type="text" name="nome" id="nome" value="<?=$nome?>">
                     </div>
-                    <h3>Quantidade</h3>
-                    <div class="input-box" id="input-box-qnt">
-                        <input type="number" name="quantidade" id="quantidade" value="<?=$quantidade?>">
+                    <h3>Descrição</h3>
+                    <div class="input-box" id="input-box-desc">
+                        <!-- <input id ="desc" type="text" name="descricao" id="descricao" placeholder="Descrição"> -->
+                        <textarea id="desc" name="descricao" rows="4" cols="50" placeholder="Descrição"><?=$descricao?></textarea>
                     </div>
                     <h3>Preço</h3>
                     <div class="input-box" id="input-box-preco">
                         <input type="decimal" name="valor" id="valor" value="<?=$valor?>">
                     </div>
-                    <h3>Descrição</h3>
-                    <div class="input-box" id="input-box-desc">
-                        <!-- <input id ="desc" type="text" name="descricao" id="descricao" placeholder="Descrição"> -->
-                        <textarea id="desc" name="descricao" rows="4" cols="50" placeholder="Descrição"><?=$descricao?></textarea>
+                    <h3>Quantidade</h3>
+                    <div class="input-box" id="input-box-qnt">
+                        <input type="number" name="quantidade" id="quantidade" value="<?=$quantidade?>">
+                    </div>
+                    <h3>Categoria</h3>
+                    <div class="input-box" id="input-box-cat">
+                        <select type="select" name="categoria" id="categoria" placeholder="Categoria">
+                            <option value="Vestuario">Vestuário</option>
+                            <option value="Calcados">Calçados</option>
+                            <option value="Equipamentos">Equipamentos</option>
+                            <option value="Acessorios">Acessórios</option>
+                        </select>
                     </div>
                     <h3>Imagem Atual</h3>
                     <img src="data:image/png;base64,<?= $imagem ?>">

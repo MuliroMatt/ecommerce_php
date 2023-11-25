@@ -268,6 +268,21 @@
     color: #fff;
     padding: 20px 45px 20px 20px;
 }
+.cadastraproduto-container .input-box select{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+.cadastraproduto-container #input-box-cat {
+    height: 60px;
+}
 .cadastraproduto-container .input-box textarea{
     width: 100%;
     height: 100%;
@@ -281,6 +296,9 @@
     padding: 10px 45px 10px 20px;
     resize: none;
 }
+.cadastraproduto-container #input-box-desc {
+    height: 150px;
+}
 .cadastraproduto-container .input-box input::placeholder {
     color: #fff;
 }
@@ -290,9 +308,6 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-}
-.cadastraproduto-container #input-box-desc {
-    height: 150px;
 }
 .cadastraproduto-container .wrapper .btn{
     width: 100%;
@@ -505,6 +520,24 @@
     padding: 10px 45px 10px 20px;
     resize: none;
 }
+.alteraproduto-container #input-box-desc {
+    height: 150px;
+}
+.alteraproduto-container .input-box select{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 20px;
+}
+.alteraproduto-container #input-box-cat {
+    height: 60px;
+}
 .alteraproduto-container .input-box input::placeholder {
     color: #fff;
 }
@@ -514,9 +547,6 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-}
-.alteraproduto-container #input-box-desc {
-    height: 150px;
 }
 .alteraproduto-container .wrapper .btn{
     width: 100%;
@@ -847,6 +877,10 @@ nav{
 .listaproduto-container .table-body:hover::-webkit-scrollbar-thumb{
     visibility: visible;
 }
+#esgotado p{
+    color: #ef233c;
+    font-weight: 500;
+}
 .listaproduto-container table{
     width: 100%;
 }
@@ -863,13 +897,20 @@ nav{
     height: 125px;
 }
 .listaproduto-container #desc{
-    width: 30%;
+    width: 20%;
 }
 .listaproduto-container #desc a{
     color: #007ACC;
     text-decoration: none;
     font-weight: 600;
 }
+.listaproduto-container #status{
+    width: 15%;
+}
+.listaproduto-container #img{
+    width: 10%;
+}
+
 
 /** IMAGEM COM ZOOM */
 .listaproduto-container td img.zoom {

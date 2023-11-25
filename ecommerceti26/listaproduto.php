@@ -64,10 +64,11 @@
                         <thead>
                             <tr>
                                 <th>Produto</th>
-                                <th>Imagem</th>
                                 <th>Descrição</th>
-                                <th>Quantidade em Estoque</th>
                                 <th>Preço</th>
+                                <th>Quantidade em Estoque</th>
+                                <th>Categoria</th>
+                                <th>Imagem</th>
                                 <th>Status</th>
                                 <th>Alterar Dados</th>
                             </tr>
@@ -82,7 +83,6 @@
                             <tbody>
                                 <tr class="<?= $classe ?>">
                                     <td id="pro"><?= $tbl[1] ?></td> <!--PRODUTO-->
-                                    <td id="img"><img src="data:image/png;base64,<?= $tbl[5] ?>" onclick="change(this)"></td> <!--IMAGEM-->
                                     <td id="desc">
                                         <?php
                                         $descricao = substr($tbl[2], 0, 100);
@@ -92,8 +92,20 @@
                                         }
                                         ?>
                                     </td> <!--DESCRIÇÃO-->
-                                    <td id="quant"><strong><?= $tbl[3] ?></strong></td> <!--QUANTIDADE-->
                                     <td id="preco"><strong>R$ <?= $tbl[4] ?></strong></td> <!--PREÇO-->
+                                    <?php
+                                    if($tbl[3] > 0){
+                                    ?>
+                                    <td id="quant"><strong><?= $tbl[3] ?></strong></td> <!--QUANTIDADE-->
+                                    <?php
+                                    } else{
+                                    ?>
+                                        <td id="esgotado"><p>Esgotado</p></td>
+                                    <?php
+                                    }
+                                    ?>
+                                    <td id="cat"><?= $tbl [7] ?></td>
+                                    <td id="img"><img src="data:image/png;base64,<?= $tbl[5] ?>" onclick="change(this)"></td> <!--IMAGEM-->
                                     <td id="status">
                                         <p class="status <?= $check = ($tbl[6] == "s") ? "ativo" : "inativo" ?>">
                                             <?= $check = ($tbl[6] == "s") ? "Ativo" : "Inativo" ?>

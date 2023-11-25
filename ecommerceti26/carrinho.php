@@ -55,15 +55,11 @@ while($row = mysqli_fetch_assoc($retorno2)) {
                                 <p class="product-title"><?= $tbl[4] ?></p>
                                 <h2 class="product-price">R$ <?= $tbl[6] * $tbl[8]?></h2>
                                 <div class="qtd-container">
-                                    <button onclick="location.href='atualizar_carrinho.php?var1=<?=$tbl[3]?> &var2=<?=$tbl[8] - 1?>'" class="qtd-button" id="decrement">
-                                        -
-                                    </button>
+                                    <button onclick="updateQuantity('decrement', <?=$tbl[3]?>, <?=$tbl[8]?>)" class="qtd-button" id="decrement">-</button>
                                     <div class="qtd-btn">
                                         <p><?= $tbl[8]?> </p>
                                     </div>
-                                    <button onclick="location.href='atualizar_carrinho.php?var1=<?=$tbl[3]?> &var2=<?=$tbl[8] + 1?>'" class="qtd-button" id="increment">
-                                        +
-                                    </button>
+                                    <button onclick="updateQuantity('increment', <?=$tbl[3]?>, <?=$tbl[8]?>)" class="qtd-button" id="increment">+</button>
                                 </div>
                             </div>
                         <button onclick="location.href='deleta_produto_carrinho.php?var1=<?=$tbl[3]?> &var2=<?=$tbl[0]?>'" class="delete-btn">
@@ -98,5 +94,15 @@ while($row = mysqli_fetch_assoc($retorno2)) {
             ?>
         </div>
     </main>
+    <script>
+        function updateQuantity(action, var1, currentQuantity) {
+            let newQuantity = (action === 'increment') ? (currentQuantity + 1) : (currentQuantity - 1);
+
+            // Garante que a nova quantidade não seja menor que 0
+            if (newQuantity > 0) {
+                location.href = `atualizar_carrinho.php?var1=${var1}&var2=${newQuantity}`;
+            }
+        }
+    </script>
 </body>
 </html>

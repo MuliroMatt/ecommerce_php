@@ -10,6 +10,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     $descricao = trim($descricao);
     $valor = str_replace(",",".", $_POST['valor']);
     $quantidade = $_POST['quantidade'];
+    $categoria = $_POST['categoria'];
     $imagem = $_POST['imagem'];
 
     $sql = "SELECT COUNT(pro_id) FROM produtos WHERE pro_nome = '$nome' AND pro_ativo = 's'";
@@ -42,8 +43,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>window.alert('PRODUTO JÁ CADASTRADO!');</script>";
     }
     else{
-        $sql = "INSERT INTO produtos (pro_nome, pro_quantidade, pro_valor, pro_descricao, pro_imagem, pro_ativo) 
-        VALUES('$nome','$quantidade','$valor','$descricao','$imagem_base64','s')";
+        $sql = "INSERT INTO produtos (pro_nome, pro_quantidade, pro_valor, pro_descricao, pro_imagem, pro_ativo, pro_categoria) 
+        VALUES('$nome','$quantidade','$valor','$descricao','$imagem_base64','s', '$categoria')";
         mysqli_query($link, $sql);
         echo "<script>window.alert('PRODUTO CADASTRADO!');</script>";
         echo "<script>window.location.href='cadastraproduto.php';</script>";
@@ -68,18 +69,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <div class="input-box" id="input-box-name">
                         <input type="text" name="nome" id="nome" placeholder="Nome do Produto">
                     </div>
-                    <h3>Quantidade</h3>
-                    <div class="input-box" id="input-box-qnt">
-                        <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade">
+                    <h3>Descrição</h3>
+                    <div class="input-box" id="input-box-desc">
+                        <!-- <input id ="desc" type="text" name="descricao" id="descricao" placeholder="Descrição"> -->
+                        <textarea id="desc" name="descricao" rows="4" cols="50" placeholder="Descrição"></textarea>
                     </div>
                     <h3>Preço</h3>
                     <div class="input-box" id="input-box-preco">
                         <input type="decimal" name="valor" id="valor" placeholder="R$">
                     </div>
-                    <h3>Descrição</h3>
-                    <div class="input-box" id="input-box-desc">
-                        <!-- <input id ="desc" type="text" name="descricao" id="descricao" placeholder="Descrição"> -->
-                        <textarea id="desc" name="descricao" rows="4" cols="50" placeholder="Descrição"></textarea>
+                    <h3>Quantidade</h3>
+                    <div class="input-box" id="input-box-qnt">
+                        <input type="number" name="quantidade" id="quantidade" placeholder="Quantidade">
+                    </div>
+                    <h3>Categoria</h3>
+                    <div class="input-box" id="input-box-cat">
+                        <select type="select" name="categoria" id="categoria" placeholder="Categoria">
+                            <option value="roupa">Vestuário</option>
+                            <option value="calcado">Calçados</option>
+                            <option value="equipamento">Equipamentos</option>
+                            <option value="acessorio">Acessórios</option>
+                        </select>
                     </div>
                     <h3>Imagem</h3>
                     <div class="input-box" id="input-box-img">

@@ -68,13 +68,13 @@ if (isset($_SESSION['nomeusuario'])) {
     <nav>
         <div class="nav-container">
             <ul>
-                <li><a href="#">Masculino</a></li>
-                <li><a href="#">Feminino</a></li>
-                <li><a href="#">Roupas</a></li>
-                <li><a href="#">Calçados</a></li>
-                <li><a href="#">Acessórios</a></li>
-                <li><a href="#">Equipamentos</a></li>
-                <li><a href="#">Esportes</a></li>
+                <li><a href="masculino.php">Masculino</a></li>
+                <li><a href="feminino.php">Feminino</a></li>
+                <li><a href="vestuario.php">Roupas</a></li>
+                <li><a href="calcados.php">Calçados</a></li>
+                <li><a href="acessorios.php">Acessórios</a></li>
+                <li><a href="equipamentos.php">Equipamentos</a></li>
+                <li><a href="esportes.php">Esportes</a></li>
             </ul>
         </div>
     </nav>
