@@ -10,6 +10,7 @@
         $preco = $_POST['preco'];
         $preco = (float)$preco;
         $totalitem = (($preco));
+
         //*GERAR UM RANDOM PARA DEFINIR UM CARRINHO UNICO E EXCLUSIVO
         $numerocarrinho = ($idusuario . RAND());
 
@@ -88,6 +89,7 @@
         $descricao = $tbl[2];
         $preco = $tbl[4];
         $imagem_atual = $tbl[5];
+        $categoria = $tbl[7];
     }
 
 ?>
@@ -108,7 +110,7 @@
                     <td><img name="imagem_atual" class="imagem_atual" src="data:image/jpeg;base64,<?= $imagem_atual ?>"></td>
                 </div>
                 <div class="col-2" id="product-info">
-                    <h4>Produtos</h4>
+                    <h4><?= $categoria ?></h4>
                     <div class="pro-container">
                         <h1><?=$nomeproduto?></h1>
                         <?php
