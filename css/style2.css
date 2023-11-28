@@ -8,6 +8,7 @@
     font-family: "Roboto", sans-serif;
 }
 
+
 /** ######################################## HEADER ######################################## */
 /*HEADER*/
 header{
@@ -255,16 +256,67 @@ nav{
     border-bottom: 2px solid #0f479c;
 }
 
+/**########################################### FOOTER #########################################*/
+footer{
+    background-color: #171717;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    color: #FFF;
+    margin-top: 64px;
+    max-height: 286px;
+}
+
+#footer-container{
+    max-width: 100%;
+}
+#footer-container h2{
+    font-weight: 100;
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+#footer-container p{
+    font-size: 13px;
+    margin-top: 17px;
+}
+.footer-links i{
+    font-size: 25px;
+}
+.footer-links li{
+    display: inline;
+    margin-right: 15px;
+}
+.footer-links li a{
+    color: #FFF;
+}
+.footer-links li a:hover{
+    transition: 0.5s;
+    color: #0f479c;
+}
+.footer-list{
+    margin-top: 17px;
+}
+.footer-list li{
+    display: inline;
+    list-style: none;
+}
+.footer-list li a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #FFF;
+}
+
+
+
 
 
 
 /** ######################################## LOJA ######################################## */
 .loja-container{
+    width: 100%;
     min-height: 100vh;
 }
 .loja-container .wrapper{
     width: 1400px;
-    height: 100%;
     margin: auto;
 }
 .loja-container .wrapper h1{
@@ -514,7 +566,7 @@ nav{
 /** ######################################## VERPRODUTO ######################################## */
 
 .verproduto-container{
-
+    width: 100%;
 }
 .verproduto-container .wrapper{
     width: 1400px;
@@ -532,6 +584,7 @@ nav{
     width: 50%;
 }
 #product-image{
+    height: 50%;
     overflow: hidden;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -705,11 +758,10 @@ input::-webkit-inner-spin-button{
 
 /**##################################### CARRINHO #########################################*/
 .carrinho-container{
-    height: 86vh;
+    min-height: 100vh;
 }
 .carrinho-container .wrapper{
     width: 1400px;
-    height: 100%;
     margin: auto;
 }
 .carrinho-container .small-container{

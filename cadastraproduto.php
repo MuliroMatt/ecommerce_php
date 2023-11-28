@@ -85,10 +85,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h3>Categoria</h3>
                     <div class="input-box" id="input-box-cat">
                         <select type="select" name="categoria" id="categoria" placeholder="Categoria">
-                            <option value="roupa">Vestuário</option>
-                            <option value="calcado">Calçados</option>
-                            <option value="equipamento">Equipamentos</option>
-                            <option value="acessorio">Acessórios</option>
+                            <option value="Vestuario">Vestuário</option>
+                            <option value="Calcados">Calçados</option>
+                            <option value="Equipamentos">Equipamentos</option>
+                            <option value="Acessorios">Acessórios</option>
                         </select>
                     </div>
                     <h3>Imagem</h3>
