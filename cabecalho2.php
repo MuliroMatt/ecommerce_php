@@ -9,7 +9,7 @@ if (isset($_SESSION['nomeusuario'])) {
 }
 ?>
 
-<link rel="stylesheet" href="./css/style2.css">
+<link rel="stylesheet" href="./css/stylenew.css">
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <header>
         <div class="header-container">

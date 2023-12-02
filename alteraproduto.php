@@ -86,6 +86,7 @@ while ($tbl = mysqli_fetch_array($retorno)) {
                     <h3>Categoria</h3>
                     <div class="input-box" id="input-box-cat">
                         <select type="select" name="categoria" id="categoria" placeholder="Categoria">
+                            <option value="<?=$categoria?>"><?=$categoria?></option>
                             <option value="Vestuario">Vestuário</option>
                             <option value="Calcados">Calçados</option>
                             <option value="Equipamentos">Equipamentos</option>

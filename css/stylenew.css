@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Raleway:ital,wght@1,800&family=Roboto:wght@300;400;500;700;900&display=swap');
+
+:root{
+    --primary-color: #0f479c;
+    --secondary-color: #FFF;
+    --link-hover-color: #0f479c;
+    --border-color: #ccc;
+    --shadow-color: #00000013;
+    --success-color: #4CAF50;
+    --error-color: #ef233c;
+    --button-hover-color: #70af72;
+    --dark-text-color: #000;
+    --grey-text-color: #878787;
+    --light-text-color: #fff;
+    --footer-color: #1d1c1c;
+}
+
+/** ########## GERAL ########## */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+    text-decoration: none;
+}
+
+/* CONTAINER */
+.container{
+    width: 100%;
+}
+
+/* WRAPPER */
+.wrapper{
+    width: 1400px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/** ########## HEADER - NAV ########## */
+/* HEADER */
+header{
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+    height: 90px;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: .7px solid var(--border-color);
+}
+.header-container{
+    width: 1400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* CONTENT-LEFT */
+.content-left{
+    width: 77%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content-left .logo{
+    padding-right: 20px;
+}
+.content-left h1{
+    color: var(--light-text-color);
+    font-size: 45px;
+    font-weight: 600;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* BARRA DE PESQUISA */
+.search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 58px;
+    border-radius: 8px;
+}
+.search__input {
+    font-size: inherit;
+    background-color: var(--secondary-color);
+    border: none;
+    color: #646464;
+    padding: 16px;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    margin-right: -2rem;
+}
+.search__input:hover, .search__input:focus {
+    box-shadow: 0 0 1em #00000013;
+}
+.search__input:focus {
+    outline: none;
+    background-color: #f0eeee;
+}
+.search__input::-webkit-input-placeholder {
+    font-weight: 100;
+    color: #ccc;
+}
+.search__input:focus + .search__button {
+    background-color: #f0eeee;
+}
+.search__button {
+    border: none;
+    background-color: #FFF;
+}
+.search__button:hover {
+    cursor: pointer;
+}
+.search__icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: #b4b4b4;
+    margin-right: 10px;
+}
+.search__icon {
+    height: 1.3em;
+    width: 1.3em;
+    fill: #b4b4b4;
+    margin-right: 10px;
+}
+
+/* CONTENT-RIGHT */
+.content-right{
+    width: 23%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.content-right i{
+    font-size: 35px;
+    color: var(--light-text-color);
+    padding: 5px;
+}
+.content-right a{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--light-text-color);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-left: 15px;
+}
+.content-right .user-actions{
+    width: 100%;
+}
+.content-right .icon-actions{
+    width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/*DROPDOWN MENU*/
+.dropdown{
+    width: 100%;
+}
+.dropdown a{
+    display: flex;
+    padding: 0;
+    margin-left: 15px;
+}
+.dropdown .content a{
+    color: var(--dark-text-color);
+    padding: 5px 15px;
+}
+.dropdown .content a:hover{
+    color: #CCC;
+}
+.dropdown .content a:hover i{
+    color: #CCC;
+}
+.dropdown .content i{
+    color: var(--dark-text-color);
+    font-size: 15px;
+}
+.dropdown .content {
+    border-radius: 5px;
+    position: absolute;
+    background-color: var(--secondary-color);
+    width: 180px;
+    opacity: 0;
+    visibility: hidden; /* Oculta o elemento enquanto a opacidade é 0 */ /* Adiciona uma transição para a opacidade e atrasa a visibilidade para que a transição ocorra antes de tornar o elemento invisível novamente */
+    box-shadow: .5px .5px 2px 1px hsla(0, 0%, 0%, 0.502);
+}
+.dropdown:hover .content {
+    opacity: 1;
+    visibility: visible; /* Torna o elemento visível quando o mouse está sobre o .dropdown */
+    transition-delay: 0.3s; /* Remove o atraso na visibilidade durante o hover */
+}
+.content::before{
+    /**criando a ponta da caixa de dialogo*/
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid #FFF;
+    position: absolute;
+    top: -7px;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*NAV*/
+nav{
+    background-color: var(--secondary-color);
+    width: 100%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: .7px solid var(--border-color);
+}
+.nav-container{
+    width: 1400px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-container ul{
+    width: 100%;
+    list-style: none;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.nav-container li{
+    height: 100%;
+    width: 100%;
+}
+.nav-container li a{
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    color: var(--grey-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-bottom: 2px solid transparent;
+}
+.nav-container li a:hover{
+    transition: 0.3s;
+    color: #0f479c;
+    border-bottom: 2px solid #0f479c;
+}
+
+/** ########## FOOTER ########## */
+
+footer {
+    background-color: var(--footer-color);
+    color: var(--light-text-color);
+    padding-top: 5em;
+    padding-bottom: 40px;
+    border-top: 1px solid var(--border-color);
+}
+footer hr{
+    border: 0;
+    height: 1px;
+    background-color: var(--grey-text-color);
+    margin: 20px 0 20px 0;
+}
+footer h2{
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--success-color);
+}
+footer a{
+    font-size: 1.2rem;
+    color: var(--light-text-color);
+    display: flex;
+    align-items: center;
+}
+footer ul{
+    padding: 0;
+}
+footer li{
+    list-style: none;
+    padding-bottom: 10px;
+}
+footer i{
+    font-size: 1.5rem;
+    padding: 5px 5px 5px 0;
+}
+footer li a:hover{
+    transition: .3s;
+    color: var(--button-hover-color);
+}
+.footer-top{
+    display: flex;
+    justify-content: flex-start;
+
+}
+.footer-box{
+    width: 31%;
+    padding: 1%;
+}
+.footer-bottom{
+    font-size: .7rem;
+    color: var(--grey-text-color);
+}
+

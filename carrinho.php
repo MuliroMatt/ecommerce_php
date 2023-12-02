@@ -60,6 +60,7 @@ while($row = mysqli_fetch_assoc($retorno2)) {
                                         <p><?= $tbl[8]?> </p>
                                     </div>
                                     <button onclick="updateQuantity('increment', <?=$tbl[3]?>, <?=$tbl[8]?>)" class="qtd-button" id="increment">+</button>
+
                                 </div>
                             </div>
                         <button onclick="location.href='deleta_produto_carrinho.php?var1=<?=$tbl[3]?> &var2=<?=$tbl[0]?>'" class="delete-btn">
