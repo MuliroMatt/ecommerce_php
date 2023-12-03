@@ -99,130 +99,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/stylenew.css">
     <title>AceStore | <?=$nomeproduto?></title>
 </head>
 <body>
-    <main class="verproduto-container">
-        <div class="wrapper">
-            <div class="small-container">
-                <div class="col-2" id="product-image">
-                    <td><img name="imagem_atual" class="imagem_atual" src="data:image/jpeg;base64,<?= $imagem_atual ?>"></td>
-                </div>
-                <div class="col-2" id="product-info">
-                    <h4><?= $categoria ?></h4>
-                    <div class="pro-container">
-                        <h1><?=$nomeproduto?></h1>
-                        <?php
-                        if (isset($idusuario)) {
-                            $sql = "SELECT COUNT(fav_id) FROM favoritos WHERE fav_cli_id = $idusuario AND fav_pro_id = $id";
-                            $retorno = mysqli_query($link,$sql);
-                            while ($tbl = mysqli_fetch_array($retorno)) {
-                                $cont = $tbl[0];
-                                if($cont <= 0){
+    <div class="container verproduto">
+        <main>
+            <div class="wrapper">
+                <div class="small-container">
+                    <div class="col-2 product-img">
+                        <td><img name="imagem_atual" class="imagem_atual" src="data:image/jpeg;base64,<?= $imagem_atual ?>"></td>
+                    </div>
+                    <div class="col-2 product-info">
+                        <h4><?= $categoria ?></h4>
+                        <div class="pro-container">
+                            <h1><?=$nomeproduto?></h1>
+                            <?php
+                            if (isset($idusuario)) {
+                                $sql = "SELECT COUNT(fav_id) FROM favoritos WHERE fav_cli_id = $idusuario AND fav_pro_id = $id";
+                                $retorno = mysqli_query($link,$sql);
+                                while ($tbl = mysqli_fetch_array($retorno)) {
+                                    $cont = $tbl[0];
+                                    if($cont <= 0){
+                                    ?>
+                                    <a class="fav-icon" href="favoritar.php?id=<?= $id ?>">
+                                        <i class='bx bx-heart bx-flip-horizontal' style='color:#000' ></i>
+                                    </a>
+                                    <?php
+                                    } else{
+                                    ?>
+                                    <a class="fav-icon" href="favoritar.php?id=<?= $id ?>">
+                                        <i class='bx bxs-heart bx-flip-horizontal' style='color:#000' ></i>
+                                    </a>
+                                    <?php
+                                    }
+                                }
+                            } else {
                                 ?>
                                 <a class="fav-icon" href="favoritar.php?id=<?= $id ?>">
                                     <i class='bx bx-heart bx-flip-horizontal' style='color:#000' ></i>
                                 </a>
                                 <?php
-                                } else{
-                                ?>
-                                <a class="fav-icon" href="favoritar.php?id=<?= $id ?>">
-                                    <i class='bx bxs-heart bx-flip-horizontal' style='color:#000' ></i>
-                                </a>
-                                <?php
-                                }
                             }
-                        } else {
                             ?>
-                            <a class="fav-icon" href="favoritar.php?id=<?= $id ?>">
-                                <i class='bx bx-heart bx-flip-horizontal' style='color:#000' ></i>
-                            </a>
-                            <?php
+                        </div>
+                        <?php
+                        if ($quantidade > 0) {
+                        ?>
+                        <h2>R$ <?=$preco?></h2>
+                        <form  class="visualizaproduto" action="verproduto.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="<?= $id ?>" readonly>
+                            <input type="hidden" name="nomeproduto" id="nome" value="<?= $nomeproduto ?>" readonly>
+                            <input type="hidden" name="descricao" readonly value="<?= $descricao ?>">
+                            <input type="hidden" name="preco" id="preco" value="R$ <?= $preco ?>" readonly>
+                            <div class="qtd-container">
+                                <button type="button" class="btn decrement" id="decrement" onclick="stepper(this)"> - </button>
+                                <input type="number" name="quantidade" id="quantidade" min="1" value="1" max="<?= $quantidade ?>" step="1" readonly>
+                                <button type="button" class="btn increment" id="increment" onclick="stepper(this)"> + </button>
+                            </div>
+                            <button class="btn carrinho" type="submit">Adicionar ao carrinho</button>
+                        </form>
+                        <?php
+                        }else{
+                        ?>
+                        <h2 class="esgotado">Esgotado</h2>
+                        <form  class="visualizaproduto" action="verproduto.php" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="id" value="<?= $id ?>" readonly>
+                            <input type="hidden" name="nomeproduto" id="nome" value="<?= $nomeproduto ?>" readonly>
+                            <input type="hidden" name="descricao" readonly value="<?= $descricao ?>">
+                            <input type="hidden" name="preco" id="preco" value="R$ <?= $preco ?>" readonly>
+                            <div class="qtd-container disabled">
+                                <button type="button" class="qtd-button" id="decrement" onclick="stepper(this)" disabled> - </button>
+                                <input type="number" name="quantidade" id="quantidade" min="1" value="1" max="<?= $quantidade ?>" step="1" readonly>
+                                <button type="button" class="qtd-button" id="increment" onclick="stepper(this)" disabled> + </button>
+                            </div>
+                            <button class="btn carrinho disabled" type="submit" disabled>Adicionar ao carrinho</button>
+                        </form>
+                        <?php
                         }
                         ?>
-                    </div>
-                    <?php
-                    if ($quantidade > 0) {
-                    ?>
-                    <h2>R$ <?=$preco?></h2>
-                    <form  class="visualizaproduto" action="verproduto.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id" value="<?= $id ?>" readonly>
-                        <input type="hidden" name="nomeproduto" id="nome" value="<?= $nomeproduto ?>" readonly>
-                        <input type="hidden" name="descricao" readonly value="<?= $descricao ?>">
-                        <input type="hidden" name="preco" id="preco" value="R$ <?= $preco ?>" readonly>
-                        <div class="qtd-container">
-                            <button type="button" class="qtd-button" id="decrement" onclick="stepper(this)"> - </button>
-                            <input type="number" name="quantidade" id="quantidade" min="1" value="1" max="<?= $quantidade ?>" step="1" readonly>
-                            <button type="button" class="qtd-button" id="increment" onclick="stepper(this)"> + </button>
+                        <hr>
+                        <div class="product-desc">
+                            <h3>Descrição</h3>
+                            <p><?=$descricao?></p>
                         </div>
-                        <button id="cart-btn" type="submit">Adicionar ao carrinho</button>
-                    </form>
-                    <?php
-                    }else{
-                    ?>
-                    <h2 id="esgotado">Esgotado</h2>
-                    <form  class="visualizaproduto" action="verproduto.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id" value="<?= $id ?>" readonly>
-                        <input type="hidden" name="nomeproduto" id="nome" value="<?= $nomeproduto ?>" readonly>
-                        <input type="hidden" name="descricao" readonly value="<?= $descricao ?>">
-                        <input type="hidden" name="preco" id="preco" value="R$ <?= $preco ?>" readonly>
-                        <div class="qtd-container-esgotado">
-                            <button type="button" class="qtd-button" id="decrement" onclick="stepper(this)" disabled> - </button>
-                            <input type="number" name="quantidade" id="quantidade" min="1" value="1" max="<?= $quantidade ?>" step="1" readonly>
-                            <button type="button" class="qtd-button" id="increment" onclick="stepper(this)" disabled> + </button>
-                        </div>
-                        <button id="cart-btn-disabled" type="submit" disabled>Adicionar ao carrinho</button>
-                    </form>
-                    <?php
-                    }
-                    ?>
-                    <hr>
-                    <div class="product-desc">
-                        <h3>Descrição</h3>
-                        <p><?=$descricao?></p>
                     </div>
                 </div>
             </div>
-        </div>
-        <footer>
-                <div id ="footer-container" >
-                    <div class="wrapper">
-                        <div class="footer-box">
-                            <h2>Redes Sociais</h2>
-                            <ul class="footer-links">
-                                <li>
-                                    <a href="#"><i class='bx bxl-youtube'></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class='bx bxl-instagram'></i></a>
-                                </li>
-                                <li>
-                                    <a href="#"><i class='bx bxl-twitter'></i></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul class="footer-list">
-                                <li><a href="#">Início |</a></li>
-                                <li><a href="#">Perfil |</a></li>
-                                <li><a href="#">Favoritos |</a></li>
-                                <li><a href="#">Carrinho</a></li>
-                            </ul>
-                        </div>
-                        <div>
-                            <p>
-                                © AceStore 2023 Todos os direitos reservados <br>
-                                A AceStore é dedicada a oferecer produtos esportivos de excelência, inspirando a busca pela excelência e o desempenho máximo. <br>
-                                Nosso compromisso com a qualidade reflete-se em cada item cuidadosamente selecionado para atender às necessidades dos atletas mais exigentes. <br>
-                                Seja bem-vindo ao universo da performance elevada. Sua jornada esportiva começa aqui. <br>
-                                #ExcelênciaNoEsporte #DesempenhoSuperior #AceStore
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-    </main>
+        </main>
+        <?php
+            include("footer.html");
+            ?>
+    </div>
 </body>
 </html>
 <script>

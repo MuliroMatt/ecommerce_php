@@ -255,8 +255,8 @@ nav{
 }
 .nav-container li a:hover{
     transition: 0.3s;
-    color: #0f479c;
-    border-bottom: 2px solid #0f479c;
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
 }
 
 /** ########## FOOTER ########## */
@@ -288,6 +288,8 @@ footer a{
 }
 footer ul{
     padding: 0;
+    display: inline-flex;
+    flex-direction: column;
 }
 footer li{
     list-style: none;
@@ -313,5 +315,227 @@ footer li a:hover{
 .footer-bottom{
     font-size: .7rem;
     color: var(--grey-text-color);
+}
+
+/** ########## LOJA  ########## */
+
+.container.loja h1{
+    padding: 32px 0 32px;
+    color: var(--grey-text-color);
+}
+
+/* CARD PRODUTO */
+.container.loja .product-card{
+    display: inline-flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    outline-color: var(--primary-color);
+    padding: 16px;
+    position: relative;
+    color: inherit;
+}
+.container.loja .product-card:hover{
+    transition: .1s;
+    border: 1px solid var(--primary-color);
+}
+.container.loja .product-img{
+    height: 164px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container.loja .product-img img{
+    aspect-ratio: 1/1;
+    object-fit: contain;
+    width: 100%;
+    height: 164px;
+}
+.container.loja .product-card p{
+    overflow: hidden;
+    margin-top: 4px;
+    font-size: 1rem;
+}
+.container.loja .price-container{
+    margin-top: auto;
+}
+.container.loja .price-container .product-price{
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--dark-text-color);
+}
+.container.loja .price-container .product-stock{
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.2;
+    color: var(--error-color);
+}
+.container.loja .grid-products{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    padding-bottom: 64px;
+}
+
+/** ########## VERPRODUTO ########## */
+
+.container.verproduto img{
+    width: 100%;
+}
+.container.verproduto .small-container{
+    padding: 32px 0 32px 0;
+    display: flex;
+}
+.container.verproduto .col-2{
+    width: 50%;
+}
+.container.verproduto .product-img{
+    /* height: 50%; */
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+.container.verproduto .product-info{
+    padding: 45px 45px;
+    display: flex;
+    flex-direction: column;
+}
+.container.verproduto .product-info h1{
+    font-weight: 600;
+    font-size: 2rem;
+}
+.container.verproduto .product-info h2{
+    font-weight: 600;
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+.container.verproduto .product-info h4{
+    font-weight: 400;
+    color: var(--grey-text-color);
+}
+.container.verproduto .product-info .esgotado{
+    color: var(--error-color);
+}
+.container.verproduto .pro-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* width: 100%; */
+    margin-bottom: 25px;
+    margin-top: 15px;
+}
+.container.verproduto .fav-icon{
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+}
+.container.verproduto .product-info .btn.carrinho{
+    width: 100%;
+    height: 45px;
+    background: transparent;
+    outline: none;
+    border: 1px solid var(--success-color);
+    border-radius: 45px;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--success-color);
+    font-weight: 600;
+    margin-top: 10px;
+}
+.container.verproduto .product-info .btn.carrinho:hover{
+    transition: .3s;
+    background: var(--success-color);
+    color: var(--light-text-color);
+}
+.container.verproduto .product-info .btn.disabled{
+    cursor: not-allowed;
+    border: 1px solid var(--button-hover-color);
+    color: var(--button-hover-color);
+}
+.container.verproduto .product-info .btn.disabled:hover{
+    cursor: not-allowed;
+    border: 1px solid var(--button-hover-color);
+    color: var(--button-hover-color);
+    background: transparent;
+}
+.container.verproduto .qtd-container{
+    display: flex;
+    height: 45px;
+}
+.container.verproduto .qtd-container input[type="number"]{
+    -moz-appearance: textfield;
+    text-align: center;
+    font-size: 1.25rem;
+    border: none;
+    background-color: var(--secondary-color);
+    width: 100%;
+    color: var(--grey-text-color);
+    border-bottom: 1px solid var(--grey-text-color);
+    border-top: 1px solid var(--grey-text-color);
+    outline: none;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.container.verproduto .qtd-container button{
+    color: var(--grey-text-color);
+    background-color: var(--secondary-color);
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+.container.verproduto #decrement{
+    padding: 0px 5px 0px 25px;
+    border-radius: 45px 0 0 45px;
+    border-left: 1px solid var(--grey-text-color);
+    border-bottom: 1px solid var(--grey-text-color);
+    border-top: 1px solid var(--grey-text-color);
+}
+.container.verproduto #increment{
+    padding: 0px 25px 0px 5px;
+    border-radius: 0 45px 45px 0;
+    border-right: 1px solid var(--grey-text-color);
+    border-bottom: 1px solid var(--grey-text-color);
+    border-top: 1px solid var(--grey-text-color);
+}
+.container.verproduto #increment:hover{
+    transition: .3s;
+    color: var(--success-color);
+}
+.container.verproduto #decrement:hover{
+    transition: .3s;
+    color: var(--error-color);
+}
+.container.verproduto .qtd-container.disabled button{
+    cursor: not-allowed;
+}
+.container.verproduto .qtd-container.disabled #increment:hover{
+    transition: .3s;
+    color: var(--grey-text-color);
+}
+.container.verproduto .qtd-container.disabled #decrement:hover{
+    transition: .3s;
+    color: var(--grey-text-color);
+}
+.container.verproduto hr{
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 20px 0 20px 0;
+}
+.container.verproduto .product-info h3{
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 10px;
 }
 
